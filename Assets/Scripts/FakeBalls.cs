@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FakeBalls : MonoBehaviour
 {
-   public GameObject balls;
+   public GameObject yellow, red;
 
    private void Start()
    {
@@ -15,6 +15,11 @@ public class FakeBalls : MonoBehaviour
    {
       if (Input.GetKey(KeyCode.Mouse0))
       {
-         balls.SetActive(true);
+         yellow.SetActive(true);
+      }
+      
+      if (Input.GetKey(KeyCode.Mouse1))
+      {
+         red.SetActive(true);
       }
    }}
