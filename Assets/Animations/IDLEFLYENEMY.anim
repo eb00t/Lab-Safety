@@ -167,17 +167,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.56666666
         value: {x: 0, y: 0, z: -66.774}
-        inSlope: {x: 0, y: 0, z: -43.335423}
-        outSlope: {x: 0, y: 0, z: -43.335423}
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
-      - serializedVersion: 3
-        time: 0.5833333
-        value: {x: 0, y: 0, z: -82.255}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 0, z: -5.40765}
+        outSlope: {x: 0, y: 0, z: -5.40765}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -185,8 +176,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.78333336
         value: {x: 0, y: 0, z: -67.833}
-        inSlope: {x: 0, y: 0, z: 29.16807}
-        outSlope: {x: 0, y: 0, z: 29.16807}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -1677,15 +1668,6 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.5833333
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
         time: 0.78333336
         value: 0
         inSlope: 0
@@ -1724,15 +1706,6 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.56666666
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5833333
         value: 0
         inSlope: 0
         outSlope: 0
@@ -1780,17 +1753,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.56666666
         value: -66.774
-        inSlope: -43.335423
-        outSlope: -43.335423
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5833333
-        value: -82.255
-        inSlope: 0
-        outSlope: 0
+        inSlope: -5.40765
+        outSlope: -5.40765
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1798,8 +1762,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.78333336
         value: -67.833
-        inSlope: 29.16807
-        outSlope: 29.16807
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1888,7 +1852,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: enemy2head/bone_1/enemy2backflip/bone_1
+    path: enemy2head/bone_1/enemy2frontflip/bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1898,17 +1862,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: enemy2head/bone_1/enemy2backflip/bone_1
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: enemy2head/bone_1/enemy2backflip/bone_1
+    path: enemy2head/bone_1/enemy2frontflip/bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1927,8 +1881,18 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: enemy2head/bone_1/enemy2backflip/bone_1
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: enemy2head/bone_1/enemy2frontflip/bone_1
+    path: enemy2head/bone_1/enemy2backflip/bone_1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1938,7 +1902,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: enemy2head/bone_1/enemy2frontflip/bone_1
+    path: enemy2head/bone_1/enemy2backflip/bone_1
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 1
