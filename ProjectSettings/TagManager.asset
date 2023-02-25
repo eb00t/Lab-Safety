@@ -14,7 +14,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Player
   - 
   - 
   - 
@@ -40,14 +40,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Player
+    uniqueID: 2285065635
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Tilemap
     uniqueID: 1800863683
-    locked: 0
-  - name: Player
-    uniqueID: 2285065635
     locked: 0
   - name: Liquid
     uniqueID: 340811499
