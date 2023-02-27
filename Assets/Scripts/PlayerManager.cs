@@ -30,8 +30,6 @@ public class PlayerManager : MonoBehaviour
     public LayerMask groundLayers;
     private Vector3 moveAxis;
     public Vector3 spawnPos;
-    
-
 
     void Start()
     {
