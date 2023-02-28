@@ -22,7 +22,9 @@ public class pickUp : MonoBehaviour
                 {
                     //Pick up the item!
                     inventory.isFull[i] = true;
+                    itemButton.SetActive(true);
                     Instantiate(itemButton, inventory.slots[i].transform, false);
+                   // itemButton.SetActive(true);
                     Destroy(gameObject);
                     break;
                 }
