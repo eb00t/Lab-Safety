@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ThrowController : MonoBehaviour
 {
+    public GameObject projectile;
     public float force = 5f;
     Rigidbody2D rb;
     LineRenderer lr;
@@ -12,7 +13,7 @@ public class ThrowController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = projectile.GetComponent<Rigidbody2D>();
         lr = GetComponent<LineRenderer>();
     }
 
@@ -21,7 +22,7 @@ public class ThrowController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            origin = (Vector2)transform.position;
         }
 
         if (Input.GetMouseButton(0))
@@ -46,7 +47,10 @@ public class ThrowController : MonoBehaviour
             Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 velocity = (target - origin) * force;
 
-            rb.velocity = velocity;
+            GameObject newProj = Instantiate(projectile, transform.position, projectile.transform.rotation);
+            newProj.GetComponent<Rigidbody2D>().velocity = velocity;
+
+            lr.positionCount = 0;
         }
     }
 
@@ -55,7 +59,7 @@ public class ThrowController : MonoBehaviour
         Vector2[] results = new Vector2[steps];
 
         float timestep = Time.fixedDeltaTime / Physics2D.velocityIterations;
-        Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timestep * timestep;
+        Vector2 gravityAccel = Physics2D.gravity * rb.gravityScale * timestep * timestep;
         float drag = 1f - timestep * rigidbody.drag;
         Vector2 moveStep = vel * timestep;
 
