@@ -2,7 +2,7 @@ This game uses these sounds from freesound:
 "Footsteps_Metal.wav" by jaredi (https://freesound.org/s/215308/) licensed under CC BY 3.0
 "Running Down Metal Steps.wav" by danhelbling (https://freesound.org/s/272391/) licensed under CC0 1.0
 "Glass Smash, Bottle, F.wav" by InspectorJ (https://freesound.org/s/344271/) licensed under CC BY 4.0
-//MIGHT NOT BE USED "Pulling down drapes" by cribbler (https://freesound.org/s/369195/) licensed under CC0 1.0
+"Pulling down drapes" by cribbler (https://freesound.org/s/369195/) licensed under CC0 1.0
 "Whoopee Cushion (Hand).wav" by TaXMaNFoReVeR (https://freesound.org/s/325434/) licensed under CC BY-NC 3.0
 "Electricity" by deleted_user_7146007 (https://freesound.org/s/383654/) licensed under CC0 1.0
 //MIGHT NOT BE USED "explosion_big_03.ogg" by derplayer (https://freesound.org/s/587198/) licensed under CC0 1.0
@@ -14,8 +14,8 @@ This game uses these sounds from freesound:
 "squeak rubber stretch" by MattRuthSound (https://freesound.org/s/384704/) licensed under CC BY 4.0
 "Electric Shock" by pluralz (https://freesound.org/s/475806/) licensed under CC0 1.0
 "Winding an Extension Cable.wav" by sophiehall3535 (https://freesound.org/s/248025/) licensed under CC0 1.0
-"" by  () licensed under CC
-"" by  () licensed under CC
+"DVD Drive (Internal PC) 8020s AB.wav" by iainmccurdy (https://freesound.org/s/613749/) licensed under CC BY 4.0
+"Foley_Object_Fridge_Motor_Humming_Loop_Mono_NTG4.wav" by Nox_Sound (https://freesound.org/s/556369/) licensed under CC0 1.0
 "" by  () licensed under CC
 "" by  () licensed under CC
 "" by  () licensed under CC
