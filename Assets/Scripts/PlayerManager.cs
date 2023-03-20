@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEngine.InputSystem.InputAction;
+using UnityEditor;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -21,15 +23,19 @@ public class PlayerManager : MonoBehaviour
     public int playerHealth = 200;
     public int playerDamage = 15;
 
-    public float maxSpeed, moveSpeed, jumpForce, moveDir, cooldown;
+    public float maxSpeed, moveSpeed, jumpForce, moveDir, cooldown, dashSpeed, updateInterval, sprintSpeed;
+    private float dashForce, timeSinceLastUpdate;
+    private bool canSprint, isSprinting;
     //public bool canDig, canAttack;
 
     //public Slider healthBar;
     //public TextMeshProUGUI healthTxt;
 
     public LayerMask groundLayers;
-    private Vector3 moveAxis;
+    private Vector3 moveAxis, direction;
     public Vector3 spawnPos;
+
+    private float stamina = 100f;
 
     void Start()
     {
@@ -44,7 +50,7 @@ public class PlayerManager : MonoBehaviour
     {
         if (moveDir > 0)
         {
-            //pM.flipX = false;
+            pM.flipX = true;
             //shovel.flipX = false;
             //Vector3 newScale = player.transform.localScale;
            //newScale.x = 0.6f;
@@ -52,6 +58,7 @@ public class PlayerManager : MonoBehaviour
         }
         if (moveDir < 0)
         {
+            pM.flipX = false;
             //Vector3 newScale = player.transform.localScale;
             //newScale.x = -0.6f;
             //player.transform.localScale = newScale;
@@ -92,12 +99,24 @@ public class PlayerManager : MonoBehaviour
         //moveAxis = Vector3.right * moveDir;
 
         //pHB.AddForce(moveAxis * moveSpeed, ForceMode2D.Force);
-        pHB.velocity = new Vector2(moveDir * moveSpeed, pHB.velocity.y);
+        pHB.velocity = new Vector2(moveDir * (moveSpeed + sprintSpeed), pHB.velocity.y);
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         moveDir = context.ReadValue<float>();
+    }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            sprintSpeed = 10f;
+        }
+        if (context.canceled)
+        {
+            sprintSpeed = 0f;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)

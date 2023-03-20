@@ -13,9 +13,9 @@ This game uses these sounds from freesound:
 "Humming machinery.mp3" by Lewooz (https://freesound.org/s/545952/) licensed under CC0 1.0
 "squeak rubber stretch" by MattRuthSound (https://freesound.org/s/384704/) licensed under CC BY 4.0
 "Electric Shock" by pluralz (https://freesound.org/s/475806/) licensed under CC0 1.0
-"" by  () licensed under CC
-"" by  () licensed under CC
-"" by  () licensed under CC
+"Winding an Extension Cable.wav" by sophiehall3535 (https://freesound.org/s/248025/) licensed under CC0 1.0
+"DVD Drive (Internal PC) 8020s AB.wav" by iainmccurdy (https://freesound.org/s/613749/) licensed under CC BY 4.0
+"Foley_Object_Fridge_Motor_Humming_Loop_Mono_NTG4.wav" by Nox_Sound (https://freesound.org/s/556369/) licensed under CC0 1.0
 "" by  () licensed under CC
 "" by  () licensed under CC
 "" by  () licensed under CC
