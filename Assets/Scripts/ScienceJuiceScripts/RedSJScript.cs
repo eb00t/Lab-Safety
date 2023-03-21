@@ -8,19 +8,16 @@ public class RedSJScript : MonoBehaviour
     public GameObject player;
     public GameObject[] enemy;
     public Transform respawnPoint;
-
-    public GameObject fireball,boomB;
     //public bool burn, overCharge, explode, scienceJ;=
      
     public RedSJ effects;
 
-    private List<Animator> anim;
+    private Animator anim;
     
     // Start is called before the first frame update
     void Start()
     {
-        //anim = GetComponent<Animator[]>();
-       // anim1 = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -119,9 +116,6 @@ public class RedSJScript : MonoBehaviour
 
     IEnumerator burn()
     {
-
-        fireball.SetActive(true);
-       /// anim.Play("fireA");
         yield return new WaitForSeconds (7f);
         gameObject.SetActive(false);
     }
@@ -129,8 +123,6 @@ public class RedSJScript : MonoBehaviour
 
     IEnumerator boom()
     {
-        boomB.SetActive(true);
-        //anim1.Play("explodeTempA");
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
     }
