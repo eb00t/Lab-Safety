@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
     public GameObject plrProjectile;
     public Animator dmgIndc;
 
-   //private Animator animator;
+   private Animator animator;
     private Rigidbody2D pHB; // Player HitBox
     public SpriteRenderer pM, shovel; // Player Character
     public Collider2D groundCheck;
@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
         pHB = GetComponent<Rigidbody2D>();
         playerHealth = 200;
         UpdatePlayerUI();
-        //animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         spawnPos = player.transform.position;
     }
 
@@ -50,27 +50,27 @@ public class PlayerManager : MonoBehaviour
     {
         if (moveDir > 0)
         {
-            pM.flipX = true;
+            //pM.flipX = true;
             //shovel.flipX = false;
-            //Vector3 newScale = player.transform.localScale;
-           //newScale.x = 0.6f;
-            //player.transform.localScale = newScale;
+            Vector3 newScale = player.transform.localScale;
+           newScale.x = 0.5f;
+           player.transform.localScale = newScale;
         }
         if (moveDir < 0)
         {
-            pM.flipX = false;
-            //Vector3 newScale = player.transform.localScale;
-            //newScale.x = -0.6f;
-            //player.transform.localScale = newScale;
+            //pM.flipX = false;
+            Vector3 newScale = player.transform.localScale;
+            newScale.x = -0.5f;
+            player.transform.localScale = newScale;
         }
 
         if (moveDir < 0 || moveDir > 0)
         {
-            //animator.SetBool("isWalking", true);
+            animator.SetBool("isWalking", true);
         }
         else if (moveDir == 0)
         {
-           // animator.SetBool("isWalking", false);
+           animator.SetBool("isWalking", false);
         }
 
         //animator.SetFloat("airSpeed", pHB.velocity.y);
