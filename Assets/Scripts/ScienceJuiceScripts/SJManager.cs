@@ -15,3 +15,11 @@ public enum RedSJ
         
     }
 
+public enum BlueSJ
+{
+    nothing,
+    generator,
+    charge,
+    player
+}
+

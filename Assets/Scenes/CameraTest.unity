@@ -296,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -552,8 +552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 181650006}
+  enemy: []
   respawnPoint: {fileID: 1402782337}
-  effects: 1
+  effects: 5
 --- !u!58 &436293629
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1157,7 +1158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.71839523, y: 2.3057852, z: -10}
+  m_LocalPosition: {x: -0.74523926, y: 2.3056815, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1300,7 +1301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4002992584388676366, guid: a4a0a4b135052de48887050a7be938a7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6540382
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 4002992584388676366, guid: a4a0a4b135052de48887050a7be938a7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3543,7 +3544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3787,7 +3788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5056,7 +5057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5131,7 +5132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4742942805692782254, guid: e1b5cbd8cb507fa49ae82b53bf12c19f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4742942805692782254, guid: e1b5cbd8cb507fa49ae82b53bf12c19f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5240,7 +5241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5361,7 +5362,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -11.16, y: -1.11}
+  m_ConnectedAnchor: {x: -10.91, y: 0.18}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -5416,7 +5417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820966811}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.16, y: -1.11, z: 0.31636456}
+  m_LocalPosition: {x: -10.91, y: 0.18, z: 0.31636456}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5529,6 +5530,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  enemy: []
   respawnPoint: {fileID: 0}
   effects: 0
 --- !u!1001 &1848902335
@@ -5545,7 +5547,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5699,7 +5701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6896613
+      value: 1.2243774
       objectReference: {fileID: 0}
     - target: {fileID: 4133436813458840420, guid: 271a7706fd531e64f9e28112625de8c7, type: 3}
       propertyPath: m_LocalPosition.y
