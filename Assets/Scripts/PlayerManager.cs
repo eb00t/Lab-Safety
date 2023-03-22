@@ -37,11 +37,11 @@ public class PlayerManager : MonoBehaviour
 
     private float stamina = 100f;
 
-    private bool isWallSliding;
+    private bool isWallSliding,isWallJumping;
     private float wallSlidingSpeed = 2f;
     private float wallJumpDirection, walljumpingCounter;
     private float wallJumpingTime = 0f;
-    private float walljumpingDirection = 0.4f;
+    private float walljumpingDuration = 0.4f;
     private Vector2 wallJumpPower = new Vector2(8f, 16f);
     [SerializeField] private Transform wallCheak;
     [SerializeField] private LayerMask wallLayer;
@@ -183,5 +183,24 @@ public class PlayerManager : MonoBehaviour
         {
             isWallSliding = false;
         }
+    }
+
+    private void wallJump()
+    {
+        if (isWallSliding)
+        {
+            isWallJumping = false;
+            wallJumpDirection = -transform.localScale.x;
+            walljumpingCounter = wallJumpingTime;
+        }
+        else
+        {
+            walljumpingCounter -= Time.deltaTime;
+        }
+
+       // if (Jump() && walljumpingCounter >0f)
+       // {
+            
+       // }
     }
 }
