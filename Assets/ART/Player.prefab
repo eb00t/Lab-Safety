@@ -129,23 +129,23 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   plrProjectile: {fileID: 5777340032308858100, guid: fecc6a91bed50436d9f00b34735b302e, type: 3}
   dmgIndc: {fileID: 0}
-  pM: {fileID: 4455434013509224351}
+  pM: {fileID: 0}
   shovel: {fileID: 0}
-  groundCheck: {fileID: 5982535476799118158}
-  origin: {fileID: 6928002019656242807}
+  groundCheck: {fileID: 0}
+  origin: {fileID: 0}
   playerHealth: 200
   playerDamage: 15
-  maxSpeed: 10
-  moveSpeed: 7
-  jumpForce: 20
+  maxSpeed: 0
+  moveSpeed: 0
+  jumpForce: 0
   moveDir: 0
-  cooldown: 2
-  dashSpeed: 20
-  updateInterval: 0.5
+  cooldown: 0
+  dashSpeed: 0
+  updateInterval: 0
   sprintSpeed: 0
   groundLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   spawnPos: {x: 0, y: 0, z: 0}
 --- !u!50 &7195936331377222567
 Rigidbody2D:
@@ -314,8 +314,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3664422, y: -0.52584124}
-  m_Size: {x: 1.8911295, y: 5.6450644}
+  m_Offset: {x: -0.3664422, y: -0.5608394}
+  m_Size: {x: 1.8911295, y: 5.7150607}
   m_Direction: 0
 --- !u!61 &5982535476799118158
 BoxCollider2D:
@@ -330,7 +330,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.37500072, y: -3.1581311}
+  m_Offset: {x: -0.39999998, y: -3.183392}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -341,7 +341,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7799592, y: 0.4162619}
+  m_Size: {x: 1, y: 0.46678376}
   m_EdgeRadius: 0
 --- !u!114 &2486608366167324816
 MonoBehaviour:
