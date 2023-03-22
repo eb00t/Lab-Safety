@@ -6,6 +6,7 @@ using UnityEngine;
 public class batteryScript : MonoBehaviour
 {
     public GameObject player, battery,wall, charger;
+    public BoxCollider2D pickup;
     public GameObject red;
 
     public bool IsCharged;
@@ -41,7 +42,9 @@ public class batteryScript : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Charger"))
             {
-                gameObject.transform.parent = charger.transform;;
+                gameObject.transform.position = charger.transform.position;
+                gameObject.transform.parent = charger.transform;
+                pickup.enabled = false;
                 wall.SetActive(false);
                 red.SetActive(true);
             }

@@ -19,6 +19,9 @@ public class tempblue : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Destroy(gameObject);
+        if (col.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
