@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class batteryScript : MonoBehaviour
 {
-    public GameObject player, battery,wall;
+    public GameObject player, battery,wall, charger;
     public GameObject red;
 
     public bool IsCharged;
@@ -41,6 +41,7 @@ public class batteryScript : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Charger"))
             {
+                gameObject.transform.parent = charger.transform;;
                 wall.SetActive(false);
                 red.SetActive(true);
             }
