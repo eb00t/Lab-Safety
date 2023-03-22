@@ -37,6 +37,15 @@ public class PlayerManager : MonoBehaviour
 
     private float stamina = 100f;
 
+    private bool isWallSliding;
+    private float wallSlidingSpeed = 2f;
+    private float wallJumpDirection, walljumpingCounter;
+    private float wallJumpingTime = 0f;
+    private float walljumpingDirection = 0.4f;
+    private Vector2 wallJumpPower = new Vector2(8f, 16f);
+    [SerializeField] private Transform wallCheak;
+    [SerializeField] private LayerMask wallLayer;
+
     void Start()
     {
         pHB = GetComponent<Rigidbody2D>();
@@ -92,6 +101,7 @@ public class PlayerManager : MonoBehaviour
         {
             //animator.SetBool("onTheGround", false);
         }
+        WallSlide();
     }
 
     private void FixedUpdate()
@@ -155,5 +165,23 @@ public class PlayerManager : MonoBehaviour
     {
         //healthBar.value = playerHealth;
         //healthTxt.text = playerHealth + "/" + "200";
+    }
+
+    private bool isWalled()
+    {
+        return Physics2D.OverlapCircle(wallCheak.position, 0.2f, wallLayer);
+    }
+
+    private void WallSlide()
+    {
+        if (isWalled() && !groundCheck.IsTouchingLayers(groundLayers))
+        {
+            isWallSliding = true;
+            pHB.velocity = new Vector2(pHB.velocity.x, Mathf.Clamp(pHB.velocity.y, -wallSlidingSpeed, float.MaxValue));
+        }
+        else
+        {
+            isWallSliding = false;
+        }
     }
 }
