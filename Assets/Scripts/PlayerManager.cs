@@ -112,10 +112,12 @@ public class PlayerManager : MonoBehaviour
         if (context.performed)
         {
             sprintSpeed = 10f;
+            animator.SetBool("isRunning", true);
         }
         if (context.canceled)
         {
             sprintSpeed = 0f;
+            animator.SetBool("isRunning", false);
         }
     }
 
