@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6234731827040509912}
   - component: {fileID: 3664062703989170248}
   - component: {fileID: 2690255563675620035}
+  - component: {fileID: 6315407161284676173}
   m_Layer: 3
   m_Name: ScienceJuice
   m_TagString: Red
@@ -123,3 +124,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6315407161284676173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777340032308858100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9432c1dca17b8e9439e221384a4a6690, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
