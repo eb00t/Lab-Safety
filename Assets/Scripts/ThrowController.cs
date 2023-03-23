@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 public class ThrowController : MonoBehaviour
 {
     public GameObject projectile;
+    private GameObject redStation;
     public float force = 5f;
     Rigidbody2D rb;
     LineRenderer lr;
@@ -16,9 +18,19 @@ public class ThrowController : MonoBehaviour
         rb = projectile.GetComponent<Rigidbody2D>();
         lr = GetComponent<LineRenderer>();
     }
+   /* private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (gameObject.CompareTag("Player") && gameObject.CompareTag("RedStation"))
+            {
+                projectile = GameObject.FindWithTag("Red") ;
+            }
 
-    // Update is called once per frame
-    void Update()
+            else
+            {
+                projectile = GameObject.FindWithTag("BlueSJ");
+            }
+        }*/
+   void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -46,13 +58,16 @@ public class ThrowController : MonoBehaviour
         {
             Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 velocity = (target - origin) * force;
-
+            
+            
             GameObject newProj = Instantiate(projectile, transform.position, projectile.transform.rotation);
             newProj.GetComponent<Rigidbody2D>().velocity = velocity;
 
             lr.positionCount = 0;
         }
     }
+    
+    
 
     public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 vel, int steps)
     {
@@ -73,4 +88,6 @@ public class ThrowController : MonoBehaviour
 
         return results;
     }
+
+    
 }
