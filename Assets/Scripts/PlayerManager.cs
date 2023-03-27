@@ -39,10 +39,11 @@ public class PlayerManager : MonoBehaviour
 
     private bool isWallSliding,isWallJumping;
     private float wallSlidingSpeed = 2f;
-    private float wallJumpDirection, walljumpingCounter;
-    private float wallJumpingTime = 0f;
+    private float wallJumpDirection;
+    public float walljumpingCounter;
+    private float wallJumpingTime = 0.2f;
     private float walljumpingDuration = 0.4f;
-    private Vector2 wallJumpPower = new Vector2(8f, 16f);
+    private Vector2 wallJumpPower = new Vector2(25f, 30f);
     [SerializeField] private Transform wallCheak;
     [SerializeField] private LayerMask wallLayer;
 
@@ -57,51 +58,57 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if (moveDir > 0)
+        if (!isWallJumping)
         {
-            //pM.flipX = true;
-            //shovel.flipX = false;
-            Vector3 newScale = player.transform.localScale;
-           newScale.x = 0.5f;
-           player.transform.localScale = newScale;
+            if (moveDir > 0)
+            {
+                //pM.flipX = true;
+                //shovel.flipX = false;
+                Vector3 newScale = player.transform.localScale;
+               newScale.x = 0.5f;
+               player.transform.localScale = newScale;
+            }
+            if (moveDir < 0)
+            {
+                //pM.flipX = false;
+                Vector3 newScale = player.transform.localScale;
+                newScale.x = -0.5f;
+                player.transform.localScale = newScale;
+            }
+    
+            if (moveDir < 0 || moveDir > 0)
+            {
+                animator.SetBool("isWalking", true);
+            }
+            else if (moveDir == 0)
+            {
+               animator.SetBool("isWalking", false);
+            }
+    
+            //animator.SetFloat("airSpeed", pHB.velocity.y);
+    
+            if (pHB.velocity.y > 0.1f)
+            {
+    
+            }
+            else if (pHB.velocity.y < -0.1f)
+            {
+    
+            }
+    
+            if (groundCheck.IsTouchingLayers(groundLayers)
+                )
+            {
+                //animator.SetBool("onTheGround", true);
+            }
+            else if (!groundCheck.IsTouchingLayers(groundLayers))
+            {
+                //animator.SetBool("onTheGround", false);
+            }
         }
-        if (moveDir < 0)
-        {
-            //pM.flipX = false;
-            Vector3 newScale = player.transform.localScale;
-            newScale.x = -0.5f;
-            player.transform.localScale = newScale;
-        }
-
-        if (moveDir < 0 || moveDir > 0)
-        {
-            animator.SetBool("isWalking", true);
-        }
-        else if (moveDir == 0)
-        {
-           animator.SetBool("isWalking", false);
-        }
-
-        //animator.SetFloat("airSpeed", pHB.velocity.y);
-
-        if (pHB.velocity.y > 0.1f)
-        {
-
-        }
-        else if (pHB.velocity.y < -0.1f)
-        {
-
-        }
-
-        if (groundCheck.IsTouchingLayers(groundLayers))
-        {
-            //animator.SetBool("onTheGround", true);
-        }
-        else if (!groundCheck.IsTouchingLayers(groundLayers))
-        {
-            //animator.SetBool("onTheGround", false);
-        }
+        
         WallSlide();
+        wallJump();
     }
 
     private void FixedUpdate()
@@ -109,7 +116,11 @@ public class PlayerManager : MonoBehaviour
         //moveAxis = Vector3.right * moveDir;
 
         //pHB.AddForce(moveAxis * moveSpeed, ForceMode2D.Force);
-        pHB.velocity = new Vector2(moveDir * (moveSpeed + sprintSpeed), pHB.velocity.y);
+        
+        if (!isWallJumping)
+        {
+            pHB.velocity = new Vector2(moveDir * (moveSpeed + sprintSpeed), pHB.velocity.y);
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -136,6 +147,7 @@ public class PlayerManager : MonoBehaviour
             if (context.started)
             {
                 pHB.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+                walljumpingCounter = 0f;
             }
         }
     }
@@ -190,17 +202,49 @@ public class PlayerManager : MonoBehaviour
         if (isWallSliding)
         {
             isWallJumping = false;
-            wallJumpDirection = -transform.localScale.x;
+            wallJumpDirection = -player.transform.localScale.x;;
             walljumpingCounter = wallJumpingTime;
+            
+            CancelInvoke(nameof(StopWallJump));
         }
         else
         {
             walljumpingCounter -= Time.deltaTime;
         }
 
-       // if (Jump() && walljumpingCounter >0f)
-       // {
+        if (Input.GetKeyDown(KeyCode.Space) && walljumpingCounter > 0f)
+        {
+            //Debug.Log("wall is activate working");
+            isWallJumping = true;
+            pHB.velocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
+            walljumpingCounter = 0f;
+
+            if (player.transform.localScale.x != wallJumpDirection)
+            {
+               // Debug.Log("wall is working");
+                if (moveDir > 0)
+                {
+                    //pM.flipX = true;
+                    //shovel.flipX = false;
+                    Vector3 newScale = player.transform.localScale;
+                    newScale.x = 0.5f;
+                    player.transform.localScale = newScale;
+                }
+                if (moveDir < 0)
+                {
+                    //pM.flipX = false;
+                    Vector3 newScale = player.transform.localScale;
+                    newScale.x = -0.5f;
+                    player.transform.localScale = newScale;
+                }
+            }
             
-       // }
+            Invoke(nameof(StopWallJump), walljumpingDuration);
+        }
+    }
+
+    private void StopWallJump()
+    {
+        isWallJumping = false;
     }
 }
