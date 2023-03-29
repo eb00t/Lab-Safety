@@ -16,8 +16,8 @@ This game uses these sounds from freesound:
 "Winding an Extension Cable.wav" by sophiehall3535 (https://freesound.org/s/248025/) licensed under CC0 1.0
 "DVD Drive (Internal PC) 8020s AB.wav" by iainmccurdy (https://freesound.org/s/613749/) licensed under CC BY 4.0
 "Foley_Object_Fridge_Motor_Humming_Loop_Mono_NTG4.wav" by Nox_Sound (https://freesound.org/s/556369/) licensed under CC0 1.0
-"" by  () licensed under CC
-"" by  () licensed under CC
-"" by  () licensed under CC
+"Fire - Swooshes - Wind 05.wav" by GregorQuendal (https://freesound.org/s/671309/) licensed under CC BY-NC 4.0
+"squishing gel between hands" by breadparticles (https://freesound.org/s/575333/) licensed under CC0 1.0
+"MACHINE running- large loud machine buzz (SFX).wav" by mickfire (https://freesound.org/s/326428/) licensed under CC BY-NC 4.0
 "" by  () licensed under CC
 "" by  () licensed under CC
