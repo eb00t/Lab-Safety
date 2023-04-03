@@ -20,7 +20,6 @@ public class RandomSound : MonoBehaviour
         {
             MultiSourceB = AllSources[1];
         }
-
         CheckFolder();
     }
 
