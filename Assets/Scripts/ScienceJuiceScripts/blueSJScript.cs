@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class blueSJScript : MonoBehaviour
 {
-    
+    private batteryScript charging;
     public GameObject player;
     public GameObject[] enemy;
     public Transform respawnPoint;
 
     private bool batIsCharged = false;
-    private bool isCharged = false;
+    //private bool isCharged = false;
     public BlueSJ electric;
 
     
@@ -57,7 +57,7 @@ public class blueSJScript : MonoBehaviour
             
         }
 
-        if (isCharged)
+        if (charging)
         {
             
         }

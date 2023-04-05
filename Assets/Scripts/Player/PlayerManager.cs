@@ -6,7 +6,7 @@ using TMPro;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEditor;
 
-public class PlayerManager : MonoBehaviour
+public class  PlayerManager : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D pHB; // Player HitBox
@@ -41,7 +41,7 @@ public class PlayerManager : MonoBehaviour
     private bool isWallSliding,isWallJumping;
     private float wallSlidingSpeed = 2f;
     private float wallJumpDirection;
-    private float walljumpingCounter;
+    public float walljumpingCounter;
     private float wallJumpingTime = 0.2f;
     private float walljumpingDuration = 0.4f;
     private Vector2 wallJumpPower = new Vector2(25f, 30f);
@@ -236,6 +236,7 @@ public class PlayerManager : MonoBehaviour
             
             Invoke(nameof(StopWallJump), walljumpingDuration);
         }
+
     }
 
     private void StopWallJump()

@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class RedSJScript : MonoBehaviour
 {
-    public GameObject player, purp;
+    private GameObject player, purp; 
+    public GameObject  blue, yellow;
+   // public GameObject orange, green;
     public GameObject[] enemy;
-    public Transform respawnPoint;
-    //public bool burn, overCharge, explode, scienceJ;=
+    private Transform respawnPoint;
+
+   // private GameObject purp;
+        //public bool burn, overCharge, explode, scienceJ;=
      
     public GameObject fireball,boomB;
     //public bool burn, overCharge, explode, scienceJ;=
@@ -22,6 +26,10 @@ public class RedSJScript : MonoBehaviour
     {
         anim = GetComponent<Animator>();
        // anim1 = GetComponent<Animator>();
+
+       player = GameObject.FindWithTag("Player");
+       purp = GameObject.FindWithTag("Purple");
+      
     }
 
     // Update is called once per frame
@@ -37,7 +45,7 @@ public class RedSJScript : MonoBehaviour
             
         }
         
-        if (col.gameObject.CompareTag("Red"))
+        if (col.gameObject.CompareTag("RedSJ"))
         {
             switch (effects)
             {
@@ -61,6 +69,7 @@ public class RedSJScript : MonoBehaviour
                 
                 case  RedSJ.mixSJ:
                     walljump();
+                    mixRedSJ();
                     break;
                 
                 case RedSJ.death:
@@ -146,5 +155,21 @@ public class RedSJScript : MonoBehaviour
     private void overCharge()
     {
         
+    }
+
+    private void mixRedSJ()
+    {
+        if (gameObject.CompareTag("Blue"))
+        {
+            Debug.Log("work bih");
+            gameObject.SetActive(false);
+            purp.SetActive(true);
+        }
+
+        if (gameObject.CompareTag("Yellow"))
+        {
+            blue.SetActive(false);
+            yellow.SetActive(false);
+        }
     }
 }

@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class ThrowController : MonoBehaviour
 {
-    public GameObject projectile;
-    private GameObject redStation;
+    private GameObject projectile;
+    public GameObject redBallz;
+    public GameObject blueBallz;
+    public GameObject yellowBallz;
+    
     public float force = 5f;
     Rigidbody2D rb;
+    //Rigidbody2D rb2;
     LineRenderer lr;
     [SerializeField] private Transform origin;
     private Vector2 originVec;
@@ -16,21 +20,31 @@ public class ThrowController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        projectile = redBallz;
         rb = projectile.GetComponent<Rigidbody2D>();
         lr = GetComponent<LineRenderer>();
     }
-   /* private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col)
         {
-            if (gameObject.CompareTag("Player") && gameObject.CompareTag("RedStation"))
+
+            if (col.gameObject.CompareTag("RedStation"))
             {
-                projectile = GameObject.FindWithTag("Red") ;
+                //Debug.Log("im working");
+                projectile = redBallz;
+            }
+            
+            if (col.gameObject.CompareTag("YellowStation"))
+            {
+                //Debug.Log("im working");
+                projectile = yellowBallz;
             }
 
-            else
+            if (col.gameObject.CompareTag("BlueStation"))
             {
-                projectile = GameObject.FindWithTag("BlueSJ");
-            }
-        }*/
+                //Debug.Log("im working");
+                projectile = blueBallz;
+            } 
+        }
    void Update()
     {
         if (Input.GetMouseButtonDown(0))

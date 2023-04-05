@@ -13,7 +13,10 @@ TagManager:
   - Green
   - Battery
   - Charger
-  - wall
+  - RedStation
+  - BlueSJ
+  - RedSJ
+  - YellowSJ
   layers:
   - Default
   - TransparentFX

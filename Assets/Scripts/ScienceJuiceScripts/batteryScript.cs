@@ -9,12 +9,12 @@ public class batteryScript : MonoBehaviour
     public BoxCollider2D pickup;
     public GameObject red;
 
-    public bool IsCharged;
+    private bool IsCharged;
    // public RedSJScript batCheck;
     // Start is called before the first frame update
     void Start()
     {
-        
+        IsCharged = false;
     }
 
     // Update is called once per frame
@@ -45,8 +45,7 @@ public class batteryScript : MonoBehaviour
                 gameObject.transform.position = charger.transform.position;
                 gameObject.transform.parent = charger.transform;
                 pickup.enabled = false;
-                wall.SetActive(false);
-                red.SetActive(true);
+                
             }
         }
 
