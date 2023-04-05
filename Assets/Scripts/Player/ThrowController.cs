@@ -10,7 +10,8 @@ public class ThrowController : MonoBehaviour
     public float force = 5f;
     Rigidbody2D rb;
     LineRenderer lr;
-    Vector2 origin;
+    [SerializeField] private Transform origin;
+    private Vector2 originVec;
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +35,13 @@ public class ThrowController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            origin = (Vector2)transform.position;
+            originVec = new Vector2(origin.position.x, origin.position.y);
         }
 
         if (Input.GetMouseButton(0))
         {
             Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 velocity = (target - origin) * force;
+            Vector2 velocity = (target - originVec) * force;
 
             Vector2[] trajectory = Plot(rb, (Vector2)transform.position, velocity, 500);
             lr.positionCount = trajectory.Length;
@@ -57,7 +58,7 @@ public class ThrowController : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Vector2 target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 velocity = (target - origin) * force;
+            Vector2 velocity = (target - originVec) * force;
             
             
             GameObject newProj = Instantiate(projectile, transform.position, projectile.transform.rotation);

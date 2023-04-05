@@ -8,52 +8,52 @@ using UnityEditor;
 
 public class PlayerManager : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject gameManager;
-    public GameObject plrProjectile;
-    public Animator dmgIndc;
-
-   private Animator animator;
+    private Animator animator;
     private Rigidbody2D pHB; // Player HitBox
-    public SpriteRenderer pM, shovel; // Player Character
-    public Collider2D groundCheck;
 
-    public Transform origin;
+    [Header("Stats")]
+    [SerializeField] private int playerHealth = 200;
+    [SerializeField] private int playerDamage = 15;
+    [SerializeField] private float stamina = 100f;
+    [SerializeField] private float maxSpeed, moveSpeed, cooldown, dashSpeed, updateInterval;
+    private float moveDir, sprintSpeed;
+    public float jumpForce;
 
-    public int playerHealth = 200;
-    public int playerDamage = 15;
+    [Header("UI")]
+    [SerializeField] private Slider healthBar;
 
-    public float maxSpeed, moveSpeed, jumpForce, moveDir, cooldown, dashSpeed, updateInterval, sprintSpeed;
-    private float dashForce, timeSinceLastUpdate;
-    private bool canSprint, isSprinting;
-    //public bool canDig, canAttack;
+    [Header("Interactions")]
+    [SerializeField] private Transform wallCheck;
+    [SerializeField] private LayerMask wallLayer;
+    [SerializeField] private Transform origin;
+    [SerializeField] private GameObject gameManager;
+    [SerializeField] private GameObject plrProjectile;
 
-    //public Slider healthBar;
-    //public TextMeshProUGUI healthTxt;
+    private Collider2D groundCheck;
 
     public LayerMask groundLayers;
     private Vector3 moveAxis, direction;
-    public Vector3 spawnPos;
+    private Vector3 spawnPos;
 
-    private float stamina = 100f;
+    private float dashForce, timeSinceLastUpdate;
+    private bool canSprint, isSprinting;
 
     private bool isWallSliding,isWallJumping;
     private float wallSlidingSpeed = 2f;
     private float wallJumpDirection;
-    public float walljumpingCounter;
+    private float walljumpingCounter;
     private float wallJumpingTime = 0.2f;
     private float walljumpingDuration = 0.4f;
     private Vector2 wallJumpPower = new Vector2(25f, 30f);
-    [SerializeField] private Transform wallCheak;
-    [SerializeField] private LayerMask wallLayer;
 
     void Start()
     {
         pHB = GetComponent<Rigidbody2D>();
-        playerHealth = 200;
+        healthBar.maxValue = playerHealth;
         UpdatePlayerUI();
         animator = GetComponent<Animator>();
-        spawnPos = player.transform.position;
+        spawnPos = gameObject.transform.position;
+        groundCheck = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -62,18 +62,15 @@ public class PlayerManager : MonoBehaviour
         {
             if (moveDir > 0)
             {
-                //pM.flipX = true;
-                //shovel.flipX = false;
-                Vector3 newScale = player.transform.localScale;
-               newScale.x = 0.5f;
-               player.transform.localScale = newScale;
+               Vector3 newScale = gameObject.transform.localScale;
+               newScale.x = 1f;
+               gameObject.transform.localScale = newScale;
             }
             if (moveDir < 0)
             {
-                //pM.flipX = false;
-                Vector3 newScale = player.transform.localScale;
-                newScale.x = -0.5f;
-                player.transform.localScale = newScale;
+                Vector3 newScale = gameObject.transform.localScale;
+                newScale.x = -1f;
+                gameObject.transform.localScale = newScale;
             }
     
             if (moveDir < 0 || moveDir > 0)
@@ -89,24 +86,25 @@ public class PlayerManager : MonoBehaviour
     
             if (pHB.velocity.y > 0.1f)
             {
-    
+      
             }
             else if (pHB.velocity.y < -0.1f)
             {
     
             }
     
-            if (groundCheck.IsTouchingLayers(groundLayers)
-                )
+            if (groundCheck.IsTouchingLayers(groundLayers))
             {
-                //animator.SetBool("onTheGround", true);
+                animator.SetBool("isGrounded", true);
             }
             else if (!groundCheck.IsTouchingLayers(groundLayers))
             {
-                //animator.SetBool("onTheGround", false);
+                animator.SetBool("isGrounded", false);
             }
         }
-        
+
+        animator.SetFloat("yVel", pHB.velocity.y);
+
         WallSlide();
         wallJump();
     }
@@ -133,10 +131,12 @@ public class PlayerManager : MonoBehaviour
         if (context.performed)
         {
             sprintSpeed = 10f;
+            animator.SetBool("isRunning", true);
         }
         if (context.canceled)
         {
             sprintSpeed = 0f;
+            animator.SetBool("isRunning", false);
         }
     }
 
@@ -148,6 +148,7 @@ public class PlayerManager : MonoBehaviour
             {
                 pHB.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
                 walljumpingCounter = 0f;
+                animator.SetTrigger("Jump");
             }
         }
     }
@@ -157,14 +158,11 @@ public class PlayerManager : MonoBehaviour
         if (playerHealth > 0 && playerHealth != dmgDealt)
         {
             playerHealth -= dmgDealt;
-            dmgIndc.enabled = true;
-
-            dmgIndc.SetTrigger("Hit");
             UpdatePlayerUI();
         }
         else if (playerHealth <= 0 || playerHealth == dmgDealt)
         {
-            player.transform.position = spawnPos;
+            gameObject.transform.position = spawnPos;
             moveDir = 0f;
             playerHealth = 100;
             UpdatePlayerUI();
@@ -175,13 +173,13 @@ public class PlayerManager : MonoBehaviour
 
     public void UpdatePlayerUI()
     {
-        //healthBar.value = playerHealth;
+        healthBar.value = playerHealth;
         //healthTxt.text = playerHealth + "/" + "200";
     }
 
     private bool isWalled()
     {
-        return Physics2D.OverlapCircle(wallCheak.position, 0.2f, wallLayer);
+        return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 
     private void WallSlide()
@@ -202,7 +200,7 @@ public class PlayerManager : MonoBehaviour
         if (isWallSliding)
         {
             isWallJumping = false;
-            wallJumpDirection = -player.transform.localScale.x;;
+            wallJumpDirection = -gameObject.transform.localScale.x;;
             walljumpingCounter = wallJumpingTime;
             
             CancelInvoke(nameof(StopWallJump));
@@ -219,23 +217,20 @@ public class PlayerManager : MonoBehaviour
             pHB.velocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
             walljumpingCounter = 0f;
 
-            if (player.transform.localScale.x != wallJumpDirection)
+            if (gameObject.transform.localScale.x != wallJumpDirection)
             {
                // Debug.Log("wall is working");
                 if (moveDir > 0)
                 {
-                    //pM.flipX = true;
-                    //shovel.flipX = false;
-                    Vector3 newScale = player.transform.localScale;
-                    newScale.x = 0.5f;
-                    player.transform.localScale = newScale;
+                    Vector3 newScale = gameObject.transform.localScale;
+                    newScale.x = 1f;
+                    gameObject.transform.localScale = newScale;
                 }
                 if (moveDir < 0)
                 {
-                    //pM.flipX = false;
-                    Vector3 newScale = player.transform.localScale;
-                    newScale.x = -0.5f;
-                    player.transform.localScale = newScale;
+                    Vector3 newScale = gameObject.transform.localScale;
+                    newScale.x = -1f;
+                    gameObject.transform.localScale = newScale;
                 }
             }
             
