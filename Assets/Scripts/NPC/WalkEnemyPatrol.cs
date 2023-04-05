@@ -18,6 +18,8 @@ public class WalkEnemyPatrol : MonoBehaviour
     [Header("Enemy Animator")]
     [SerializeField] private Animator anim;
 
+    [SerializeField] private Transform canvas;
+
     private void Awake()
     {
         initScale = transform.localScale;
@@ -73,10 +75,12 @@ public class WalkEnemyPatrol : MonoBehaviour
         if (_direction == 1)
         {
             transform.localScale = new Vector3(Mathf.Abs(initScale.x) * -1, initScale.y, initScale.z);
+            canvas.rotation = new Quaternion(canvas.rotation.x, canvas.rotation.y, 180, canvas.rotation.w);
         }
         else if (_direction == -1)
         {
             transform.localScale = new Vector3(Mathf.Abs(initScale.x) * 1, initScale.y, initScale.z);
+            canvas.rotation = new Quaternion(canvas.rotation.x, canvas.rotation.y, 0, canvas.rotation.w);
         }
 
         //Move in that direction

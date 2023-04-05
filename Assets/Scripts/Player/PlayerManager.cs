@@ -13,7 +13,7 @@ public class PlayerManager : MonoBehaviour
 
     [Header("Stats")]
     [SerializeField] private int playerHealth = 200;
-    [SerializeField] private int playerDamage = 15;
+    public int playerDamage = 15;
     [SerializeField] private float stamina = 100f;
     [SerializeField] private float maxSpeed, moveSpeed, cooldown, dashSpeed, updateInterval;
     private float moveDir, sprintSpeed;

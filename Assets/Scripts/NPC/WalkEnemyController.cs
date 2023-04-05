@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WalkEnemyController : MonoBehaviour
 {
@@ -15,15 +16,26 @@ public class WalkEnemyController : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
 
+    [Header("Defense Parameters")]
+    public int enemyHealth;
+
     //References
     private Animator anim;
     private PlayerManager playerManager;
     private WalkEnemyPatrol enemyPatrol;
+    private Slider healthBar;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         enemyPatrol = GetComponentInParent<WalkEnemyPatrol>();
+        healthBar = GetComponentInChildren<Slider>();
+    }
+
+    private void Start()
+    {
+        healthBar.maxValue = enemyHealth;
+        healthBar.value = enemyHealth;
     }
 
     private void Update()
@@ -75,6 +87,21 @@ public class WalkEnemyController : MonoBehaviour
         {
             Debug.Log("IN sight");
             playerManager.TakeDamage(damage);
+        }
+    }
+
+    public void TakeDamage(int dmgDealt)
+    {
+        if (enemyHealth - dmgDealt > 0)
+        {
+            enemyHealth -= dmgDealt;
+            healthBar.value = enemyHealth;
+        }
+        else if (enemyHealth - dmgDealt <= 0)
+        {
+            enemyHealth = 0;
+            healthBar.value = enemyHealth;
+            gameObject.SetActive(false);
         }
     }
 }
