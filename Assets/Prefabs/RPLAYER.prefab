@@ -1517,6 +1517,7 @@ MonoBehaviour:
   dashSpeed: 20
   updateInterval: 0.5
   jumpForce: 30
+  healthBar: {fileID: 0}
   wallCheck: {fileID: 1698700664900153235}
   wallLayer:
     serializedVersion: 2
@@ -1561,7 +1562,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.72542, y: -2.3604026}
+  m_Offset: {x: -0.10003826, y: -2.3604026}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1572,7 +1573,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1851463, y: 0.5372572}
+  m_Size: {x: 1.5895114, y: 0.5372572}
   m_EdgeRadius: 0
 --- !u!70 &1698700666084558801
 CapsuleCollider2D:
@@ -1587,8 +1588,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.7711239, y: 0.19385529}
-  m_Size: {x: 1.8509083, y: 5.6122894}
+  m_Offset: {x: -0.09574759, y: 0.19385529}
+  m_Size: {x: 1.7295685, y: 5.6122894}
   m_Direction: 0
 --- !u!114 &1698700666084558797
 MonoBehaviour:

@@ -35,8 +35,8 @@ public class WalkEnemyController : MonoBehaviour
         {
             if (cooldownTimer >= attackCooldown)
             {
+                anim.SetTrigger("attack");
                 cooldownTimer = 0;
-                //anim.SetTrigger("meleeAttack");
             }
         }
 
@@ -70,8 +70,10 @@ public class WalkEnemyController : MonoBehaviour
 
     private void DamagePlayer()
     {
+        Debug.Log("Attacking");
         if (PlayerInSight())
         {
+            Debug.Log("IN sight");
             playerManager.TakeDamage(damage);
         }
     }
