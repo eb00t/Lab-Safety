@@ -19,5 +19,16 @@ This game uses these sounds from freesound:
 "Fire - Swooshes - Wind 05.wav" by GregorQuendal (https://freesound.org/s/671309/) licensed under CC BY-NC 4.0
 "squishing gel between hands" by breadparticles (https://freesound.org/s/575333/) licensed under CC0 1.0
 "MACHINE running- large loud machine buzz (SFX).wav" by mickfire (https://freesound.org/s/326428/) licensed under CC BY-NC 4.0
+"Jump_Metal_1.wav" by GiocoSound (https://freesound.org/s/421141/) licensed under CC0 1.0
+"abandoned warehouse" by Kostrava (https://freesound.org/s/240895/) licensed under CC0 1.0
+"Spider_Scuttle.wav" by KL_Falcon (https://freesound.org/s/580511/) licensed under CC0 1.0
+"Aircraft - Futuristic Aircraft hovering above ground.wav" by DamianMinnie (https://freesound.org/s/327538/) licensed under CC BY-NC 3.0
+"" by  () licensed under CC
+"" by  () licensed under CC
+"" by  () licensed under CC
+"" by  () licensed under CC
+"" by  () licensed under CC
+"" by  () licensed under CC
+"" by  () licensed under CC
 "" by  () licensed under CC
 "" by  () licensed under CC

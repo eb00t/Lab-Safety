@@ -27,7 +27,7 @@ public class RandomSound : MonoBehaviour
     {
         CheckFolder();
         RNGSource.clip = ClipsToPlay[Random.Range(0, (ClipsToPlay.Count))];
-        RNGSource.Play();
+        RNGSource.PlayOneShot(RNGSource.clip,RNGSource.volume);
         Debug.Log(gameObject.name + " is now playing: " + RNGSource.clip.name);
     }
     
@@ -35,7 +35,7 @@ public class RandomSound : MonoBehaviour
     {
         CheckFolder();
         MultiSourceB.clip = ClipsToPlay[Random.Range(0, (ClipsToPlay.Count))];
-        MultiSourceB.Play();
+        MultiSourceB.PlayOneShot(MultiSourceB.clip, MultiSourceB.volume);
         Debug.Log(gameObject.name + " is now playing, closely behind: " + MultiSourceB.clip.name);
     }
 
@@ -44,7 +44,7 @@ public class RandomSound : MonoBehaviour
         CheckFolder();
         RNGSource.clip = ClipsToPlay[Random.Range(0, ClipsToPlay.Count)];
         MultiSourceB.clip = MultiClipB[Random.Range(0, MultiClipB.Count)];
-        RNGSource.Play();
+        RNGSource.PlayOneShot(RNGSource.clip,RNGSource.volume);
         Debug.Log(gameObject.name + " is now playing: " + RNGSource.clip.name);
         MultiSourceB.PlayDelayed(RNGSource.clip.length);
         Debug.Log("and also: " + MultiSourceB.clip.name);
@@ -54,7 +54,7 @@ public class RandomSound : MonoBehaviour
     private void CheckFolder()
     {
         ClipsToPlay = new List<AudioClip>();
-        switch (WhichFolder) //Set this int manually.
+        switch (WhichFolder) //Set this int manually, or in the SoundVariableChanger script.
         {
             case 1: //FOOTSTEPS
                 foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/footsteps"))
@@ -111,6 +111,26 @@ public class RandomSound : MonoBehaviour
                 {
                     ClipsToPlay.Add(Clips);
                 }
+                break;
+            case 9: //LAND 
+                foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/jumpland"))
+                {
+                    ClipsToPlay.Add(Clips);
+                }
+                break;
+            case 10: //JUMP 
+                foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/jump"))
+                {
+                    ClipsToPlay.Add(Clips);
+                }
+
+                break;
+            case 11: //ROBOT WALK 
+                foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/robowalk"))
+                {
+                    ClipsToPlay.Add(Clips);
+                }
+
                 break;
             default:
                 foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/youshouldnthearthis"))
