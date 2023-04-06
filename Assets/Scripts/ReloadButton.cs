@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class ReloadButton : MonoBehaviour
 {
-    public GameObject[] objectsReset;
+    public GameObject[] objectsResetActive;
+    public GameObject[] objectsResetDeactive;
     
     // Start is called before the first frame update
     void Start()
@@ -21,9 +22,14 @@ public class ReloadButton : MonoBehaviour
 
     public void OnMouseDown()
     {
-        foreach (GameObject obj in objectsReset)
+        foreach (GameObject obj in objectsResetActive)
         {
             obj.SetActive(true);
+        }
+        
+        foreach (GameObject objD in objectsResetDeactive)
+        {
+            objD.SetActive(false);
         }
     }
 }

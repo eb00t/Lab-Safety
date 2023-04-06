@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum SJBottles
+{
+    redBottle,
+    blueBottle,
+    yellowBottle
+}
 
 public enum RedSJ
     {
@@ -20,6 +26,7 @@ public enum BlueSJ
     nothing,
     generator,
     charge,
-    player
+    player,
+    enemyCharge
 }
 

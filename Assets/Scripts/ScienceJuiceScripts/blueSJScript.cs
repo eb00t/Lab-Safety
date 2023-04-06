@@ -42,6 +42,13 @@ public class blueSJScript : MonoBehaviour
                 
                 case BlueSJ.generator :
                     break;
+                
+                case BlueSJ.charge:
+                    break;
+                
+                case BlueSJ.enemyCharge:
+                    //might delete
+                    break;
             }
 
             if (col.gameObject.CompareTag("Battery"))

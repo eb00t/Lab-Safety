@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6315407161284676173}
   m_Layer: 3
   m_Name: ScienceJuiceYellow
-  m_TagString: Yellow
+  m_TagString: YellowSJ
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
