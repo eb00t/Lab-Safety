@@ -6,19 +6,21 @@ using UnityEngine;
 public class blueSJScript : MonoBehaviour
 {
     private batteryScript charging;
-    public GameObject player;
-    public GameObject[] enemy;
+    private GameObject player;
+    //public GameObject[] enemy;
     public Transform respawnPoint;
-
-    private bool batIsCharged = false;
-    //private bool isCharged = false;
-    public BlueSJ electric;
-
     
+    public BlueSJ electric;
+    
+    public bool batteryisCharged, EnemyisCharged;
+
     private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
+        EnemyisCharged = false;
+        
+        player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
     }
 
@@ -30,7 +32,7 @@ public class blueSJScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Blue"))
+        if (col.gameObject.CompareTag("BlueSJ"))
         {
             switch (electric)
             {
@@ -40,10 +42,11 @@ public class blueSJScript : MonoBehaviour
                 case BlueSJ.player:
                     break;
                 
-                case BlueSJ.generator :
+                case BlueSJ.generator:
                     break;
                 
                 case BlueSJ.charge:
+                    Debug.Log("charge");
                     break;
                 
                 case BlueSJ.enemyCharge:
@@ -53,31 +56,21 @@ public class blueSJScript : MonoBehaviour
 
             if (col.gameObject.CompareTag("Battery"))
             {
-                switch (electric)
-                {
-                    case BlueSJ.charge:
-                        StartCoroutine("charger");
-                        break;
-                }
+                batteryisCharged = true;
+            }
+
+            if (col.gameObject.CompareTag("Enemy"))
+            {
+                EnemyisCharged = true;
             }
             
-            
-        }
-
-        if (charging)
-        {
             
         }
     }
 
     IEnumerator charger()
     {
-        batIsCharged = true;
-
-        if (batIsCharged == true)
-        {
-            
-        }
+        
         return null;
     }
 

@@ -1,31 +1,58 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class batteryScript : MonoBehaviour
 {
-    public GameObject player, battery,wall, charger;
-    public BoxCollider2D pickup;
-    public GameObject red;
+    //public GameObject battery,wall;
+    private GameObject player, charger;
+    // public GameObject red;
+    
+    
+    public blueSJScript batteryCharge;
+    public bool IsCharged;
 
-    private bool IsCharged;
+    //public Activation batteryCharge;
    // public RedSJScript batCheck;
     // Start is called before the first frame update
     void Start()
     {
-        IsCharged = false;
+        player = GameObject.FindGameObjectWithTag("Player");
+       charger = GameObject.FindGameObjectWithTag("Charger");
+       IsCharged = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+       activeBattery();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Blue"))
+        {
+            IsCharged = true;
+        }
+        
+        
+        if (col.gameObject.CompareTag("Charger") && IsCharged)
+        {
+            gameObject.transform.position = charger.transform.position;
+            gameObject.transform.parent = charger.transform;
+            gameObject.GetComponent<Rigidbody2D>().isKinematic = true;
+            IsCharged = false;
+            
+        }
+       // if (col.gameObject.CompareTag("Blue") || (col.gameObject.CompareTag("Enemy") && batteryCharge.EnemyisCharged))
+       // {
+           // batteryCharge.isActivated = true;
+           // batteryCharge.EnemyisCharged = false;
+        //}
+        
+       /* if (col.gameObject.CompareTag("Player"))
         {
             //player.transform.position = respawnPoint.position;
             gameObject.transform.parent = player.transform;
@@ -47,8 +74,12 @@ public class batteryScript : MonoBehaviour
                 pickup.enabled = false;
                 
             }
-        }
+        }*/
+       
+    }
 
+    public void activeBattery()
+    {
         
     }
 }

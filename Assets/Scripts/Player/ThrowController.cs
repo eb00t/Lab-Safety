@@ -29,19 +29,19 @@ public class ThrowController : MonoBehaviour
 
             if (col.gameObject.CompareTag("RedStation"))
             {
-                //Debug.Log("im working");
+                //Debug.Log("im workingR");
                 projectile = redBallz;
             }
             
             if (col.gameObject.CompareTag("YellowStation"))
             {
-                //Debug.Log("im working");
+                //Debug.Log("im workingY");
                 projectile = yellowBallz;
             }
 
             if (col.gameObject.CompareTag("BlueStation"))
             {
-                //Debug.Log("im working");
+                //Debug.Log("im workingB");
                 projectile = blueBallz;
             } 
         }

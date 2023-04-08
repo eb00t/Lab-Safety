@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,20 @@ using UnityEngine;
 public class Activation : MonoBehaviour
 {
 
-    private bool isActivated;
+    public bool isActivated;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        isActivated = true;
+        isActivated = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
+       /* if (col.gameObject.CompareTag("Battery"))
+        {
+            isActivated = true;
+        }*/
     }
 }

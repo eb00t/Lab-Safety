@@ -17,6 +17,10 @@ TagManager:
   - BlueSJ
   - RedSJ
   - YellowSJ
+  - wall
+  - YellowStation
+  - BlueStation
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -28,7 +32,7 @@ TagManager:
   - Player
   - Enemy
   - wall
-  - 
+  - Object
   - 
   - 
   - 

@@ -28,19 +28,26 @@ public class RedSJScript : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("BlueSJ"))
+        /*
+        if (!col.gameObject.CompareTag("Enemy") || !col.gameObject.CompareTag("Battery") || !col.gameObject.CompareTag("Generator") || !col.gameObject.CompareTag("burns"))
         {
-            Debug.Log("blue");
-            purpRed = Instantiate(purpRed, transform.position, transform.rotation);
-            gameObject.SetActive(false);
-        }
+            mixingSJ();
+            
+            if (col.gameObject.CompareTag("BlueSJ"))
+            {
+                Debug.Log("blue");
+                purpRed = Instantiate(purpRed, transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+            
+            else if (col.gameObject.CompareTag("YellowSJ"))
+            {
+                Debug.Log("yellow");
+                orangeRed = Instantiate(orangeRed, transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+        }*/
         
-        else if (col.gameObject.CompareTag("YellowSJ"))
-        {
-            Debug.Log("yellow");
-            orangeRed = Instantiate(orangeRed, transform.position, transform.rotation);
-            gameObject.SetActive(false);
-        }
 
         if (col.gameObject.CompareTag("Player"))
         {
@@ -59,6 +66,13 @@ public class RedSJScript : MonoBehaviour
                     break;
                 
                 case RedSJ.burnable:
+                    if (col.gameObject.CompareTag("Player"))
+                    {
+                        //Debug.Log("im working");
+                        // yield return new WaitForSeconds(1f);
+                        player.transform.position = respawnPoint.position;
+                        Debug.Log("im working");
+                    }
                     StartCoroutine(burn());
                     //burnnin();
                     break;
@@ -71,39 +85,33 @@ public class RedSJScript : MonoBehaviour
                     StartCoroutine(boom());
                    //boomBoom();
                     break;
-
-                case RedSJ.death:
-                    StartCoroutine(death());
+                case RedSJ.playerRed:
+                    player.transform.position = respawnPoint.position;
+                    Debug.Log("im working");
                     break;
+                
+                case RedSJ.mixSJ:
+                    if (col.gameObject.CompareTag("BlueSJ"))
+                    {
+                        Debug.Log("blue");
+                        purpRed = Instantiate(purpRed, transform.position, transform.rotation);
+                        gameObject.SetActive(false);
+                    }
+            
+                    else if (col.gameObject.CompareTag("YellowSJ"))
+                    {
+                        Debug.Log("yellow");
+                        orangeRed = Instantiate(orangeRed, transform.position, transform.rotation);
+                        gameObject.SetActive(false);
+                    }
+                    break;
+
                 default: break;
             }
         }
-        
+
     }
 
-    IEnumerator death()
-    {
-        
-      /*  if (gameObject.CompareTag("Enemy"))
-        {
-            foreach (GameObject obj in enemy)
-            {
-                obj.SetActive(false);
-            }
-            
-            yield return new WaitForSeconds(.01f);
-        }
-        
-        if (gameObject.CompareTag("Player"))
-        {
-            Debug.Log("im working");
-            yield return new WaitForSeconds(1f);
-            player.transform.position = respawnPoint.position;
-            Debug.Log("im working");
-        }*/
-      yield return new WaitForSeconds(.01f);
-    }
-    
 
     IEnumerator burn()
     {
@@ -121,6 +129,11 @@ public class RedSJScript : MonoBehaviour
     }
 
     private void overCharge()
+    {
+        
+    }
+
+    private void mixingSJ()
     {
         
     }
