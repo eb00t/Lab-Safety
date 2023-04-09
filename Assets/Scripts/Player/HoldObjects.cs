@@ -8,6 +8,7 @@ public class HoldObjects : MonoBehaviour
     [SerializeField] private Transform grabPoint, rayPoint;
     [SerializeField] private float rayDistance;
 
+    public batteryScript ischarging;
     private GameObject grabbedObject;
     private int layerIndex;
     private bool letGo;
@@ -24,7 +25,7 @@ public class HoldObjects : MonoBehaviour
         
         if (hitInfo.collider != null && hitInfo.collider.gameObject.layer == layerIndex)
         {
-            if (Keyboard.current.eKey.wasPressedThisFrame && grabbedObject == null)
+            if (Keyboard.current.eKey.wasPressedThisFrame && grabbedObject == null && ischarging.charging == false)
             {
                 grabbedObject = hitInfo.collider.gameObject;
                 grabbedObject.GetComponent<Rigidbody2D>().isKinematic = true;

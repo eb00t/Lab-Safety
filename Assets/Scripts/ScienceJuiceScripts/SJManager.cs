@@ -27,6 +27,7 @@ public enum BlueSJ
     generator,
     charge,
     player,
-    enemyCharge
+    enemyCharge,
+    mixBlueSJ
 }
 

@@ -7,8 +7,8 @@ public class blueSJScript : MonoBehaviour
 {
     private batteryScript charging;
     private GameObject player;
-    //public GameObject[] enemy;
-    public Transform respawnPoint;
+    public GameObject greenBlue, purpBlue;
+    private Transform respawnPoint;
     
     public BlueSJ electric;
     
@@ -20,6 +20,7 @@ public class blueSJScript : MonoBehaviour
     {
         EnemyisCharged = false;
         
+        respawnPoint = GameObject.FindWithTag("Respawn").transform;
         player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
     }
@@ -51,6 +52,21 @@ public class blueSJScript : MonoBehaviour
                 
                 case BlueSJ.enemyCharge:
                     //might delete
+                    break;
+                case BlueSJ.mixBlueSJ:
+                    if (col.gameObject.CompareTag("RedSJ"))
+                    {
+                        Debug.Log("red");
+                        purpBlue = Instantiate(purpBlue, transform.position, transform.rotation);
+                        gameObject.SetActive(false);
+                    }
+            
+                    else if (col.gameObject.CompareTag("YellowSJ"))
+                    {
+                        Debug.Log("yellow");
+                        greenBlue = Instantiate(greenBlue, transform.position, transform.rotation);
+                        gameObject.SetActive(false);
+                    }
                     break;
             }
 

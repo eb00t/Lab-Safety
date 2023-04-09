@@ -7,7 +7,7 @@ public class RedSJScript : MonoBehaviour
 {
     private GameObject player;
    // public GameObject[] enemy;
-    public Transform respawnPoint;
+    private Transform respawnPoint;
     
     public RedSJ effects;
     
@@ -17,6 +17,7 @@ public class RedSJScript : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        respawnPoint = GameObject.FindWithTag("Respawn").transform;
         player = GameObject.FindGameObjectWithTag("Player");
     }
     
