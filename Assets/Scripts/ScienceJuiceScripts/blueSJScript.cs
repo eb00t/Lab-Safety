@@ -14,7 +14,7 @@ public class blueSJScript : MonoBehaviour
     
     public bool batteryisCharged, EnemyisCharged;
 
-    private Animator anim;
+   //private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +22,7 @@ public class blueSJScript : MonoBehaviour
         
         respawnPoint = GameObject.FindWithTag("Respawn").transform;
         player = GameObject.FindGameObjectWithTag("Player");
-        anim = GetComponent<Animator>();
+      //  anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,43 +33,22 @@ public class blueSJScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("BlueSJ"))
+        if (gameObject.tag == "Blue")
         {
-            switch (electric)
+            if (col.gameObject.CompareTag("RedSJ"))
             {
-                case BlueSJ.nothing:
-                    break;
-                
-                case BlueSJ.player:
-                    break;
-                
-                case BlueSJ.generator:
-                    break;
-                
-                case BlueSJ.charge:
-                    Debug.Log("charge");
-                    break;
-                
-                case BlueSJ.enemyCharge:
-                    //might delete
-                    break;
-                case BlueSJ.mixBlueSJ:
-                    if (col.gameObject.CompareTag("RedSJ"))
-                    {
-                        Debug.Log("red");
-                        purpBlue = Instantiate(purpBlue, transform.position, transform.rotation);
-                        gameObject.SetActive(false);
-                    }
-            
-                    else if (col.gameObject.CompareTag("YellowSJ"))
-                    {
-                        Debug.Log("yellow");
-                        greenBlue = Instantiate(greenBlue, transform.position, transform.rotation);
-                        gameObject.SetActive(false);
-                    }
-                    break;
+                Debug.Log("red");
+                purpBlue = Instantiate(purpBlue, transform.position, transform.rotation);
+                gameObject.SetActive(false);
             }
-
+                
+            if (col.gameObject.CompareTag("YellowSJ"))
+            {
+                Debug.Log("yellow");
+                greenBlue = Instantiate(greenBlue, transform.position, transform.rotation);
+                gameObject.SetActive(false);
+            }
+            
             if (col.gameObject.CompareTag("Battery"))
             {
                 batteryisCharged = true;
@@ -80,34 +59,27 @@ public class blueSJScript : MonoBehaviour
                 EnemyisCharged = true;
             }
             
+            if (col.gameObject.CompareTag("Player"))
+            {
+                player.transform.position = respawnPoint.position;
+                Debug.Log("working");
+            }
             
-        }
-    }
+            if (col.gameObject.CompareTag("BlueSJ"))
+            {
+                switch (electric)
+                {
+                    case BlueSJ.nothing:
+                        break;
 
-    IEnumerator charger()
-    {
-        
-        return null;
-    }
-
-    IEnumerator charged()
-    {
-        return null;
-    }
-    
-    IEnumerator shock()
-    {
-        if (gameObject.CompareTag("Player"))
-        {
-            yield return new WaitForSeconds(1f);
-            player.transform.position = respawnPoint.position;
-            Debug.Log("im working");
+                    case BlueSJ.generator:
+                        break;
+                }
+            }
         }
     }
     IEnumerator Gen()
     {
         return null;
     }
-    
-    //private void activate
 }

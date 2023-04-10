@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Activation : MonoBehaviour
 {
-    public GameObject activatedObject;
+    //public GameObject activatedObject;
     public bool isActivated;
     public batteryScript batteryisCharged;
     private Collider2D chargerCollider;
@@ -14,16 +14,18 @@ public class Activation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SJCollider.enabled = false;
         chargerCollider = GetComponent<Collider2D>();
         isActivated = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Battery") && batteryisCharged.IsCharged == true)
+        if (col.gameObject.CompareTag("Battery") && col.transform.IsChildOf(transform))
         {
+            Debug.Log("activate");
             chargerCollider.enabled = !chargerCollider.enabled;
-            SJCollider.enabled = !SJCollider.enabled;
+            SJCollider.enabled = true;
             isActivated = true;
         }
         
