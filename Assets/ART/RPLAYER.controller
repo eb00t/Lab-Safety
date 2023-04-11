@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a9af14d0e07b9242b89d3478584ca18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WhichFolder: 2
+  WhichFolder: 1
 --- !u!1101 &8415232326495976456
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
