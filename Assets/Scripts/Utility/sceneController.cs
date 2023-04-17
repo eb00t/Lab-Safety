@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class sceneController : MonoBehaviour
 {
+    /*
     public void playGame()
     {
         SceneManager.LoadScene(1);
     }
+    */
 
     public void quitGame()
     {
@@ -24,6 +26,23 @@ public class sceneController : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Debug.Log("LOADED NEXT LEVEL!");
+    }
+
+    public void level1()
+    {
+        SceneManager.LoadScene(1);
+        Debug.Log("LOADED LEVEL 1!");
+    }
+
+    public void level2()
+    {
+        Debug.Log("LOADED LEVEL 2!");
+    }
+
+    public void level3()
+    {
+        Debug.Log("LOADED LEVEL 3!");
     }
 
 }
