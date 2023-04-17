@@ -23,8 +23,8 @@ This game uses these sounds from freesound:
 "abandoned warehouse" by Kostrava (https://freesound.org/s/240895/) licensed under CC0 1.0
 "Spider_Scuttle.wav" by KL_Falcon (https://freesound.org/s/580511/) licensed under CC0 1.0
 "Aircraft - Futuristic Aircraft hovering above ground.wav" by DamianMinnie (https://freesound.org/s/327538/) licensed under CC BY-NC 3.0
-"" by  () licensed under CC
-"" by  () licensed under CC
+"charging loop 1" by JavierZurner (https://freesound.org/s/257224/) licensed under CC BY 4.0
+"Injury.wav" by LorenzoTheGreat (https://freesound.org/s/417793/) licensed under CC BY 3.0
 "" by  () licensed under CC
 "" by  () licensed under CC
 "" by  () licensed under CC

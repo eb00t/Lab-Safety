@@ -132,6 +132,20 @@ public class RandomSound : MonoBehaviour
                 }
 
                 break;
+            case 12: //CHARGING
+                foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/batterycharge"))
+                {
+                    ClipsToPlay.Add(Clips);
+                }
+
+                break;
+            case 13: //ATTACK
+                foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/damage"))
+                {
+                    ClipsToPlay.Add(Clips);
+                }
+
+                break;
             default:
                 foreach (AudioClip Clips in Resources.LoadAll<AudioClip>("Sounds/Sound Effects/youshouldnthearthis"))
                 {
