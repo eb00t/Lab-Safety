@@ -6,8 +6,8 @@ using UnityEngine;
 public class RedSJScript : MonoBehaviour
 {
     private GameObject player;
-   // public GameObject[] enemy;
     private Transform respawnPoint;
+    public GameObject[] destroyObjects;
     
     public RedSJ effects;
     
@@ -38,60 +38,59 @@ public class RedSJScript : MonoBehaviour
                 gameObject.SetActive(false);
             }
             
-            if (col.gameObject.CompareTag("YellowSJ"))
+            else if (col.gameObject.CompareTag("YellowSJ"))
             {
                 Debug.Log("yellow");
                 orangeRed = Instantiate(orangeRed, transform.position, transform.rotation);
                 gameObject.SetActive(false);
             }
             
-            if (col.gameObject.CompareTag("Player"))
+            else if (col.gameObject.CompareTag("Player"))
             {
                 //Debug.Log("im working");
                 // yield return new WaitForSeconds(1f);
                 player.transform.position = respawnPoint.position;
                 Debug.Log("im working");
             }
+        }
+        if (col.gameObject.CompareTag("RedSJ"))
+        {
 
-            if (col.gameObject.CompareTag("RedSJ"))
+            switch (effects)
             {
+                case RedSJ.nothing:
+                    // ¯\_(ツ)_/¯
+                    break;
 
-                switch (effects)
-                {
-                    case RedSJ.nothing:
-                        // ¯\_(ツ)_/¯
-                        break;
-                
-                    case RedSJ.burnable:
-                        if (col.gameObject.CompareTag("Player"))
-                        {
-                            //Debug.Log("im working");
-                            // yield return new WaitForSeconds(1f);
-                            player.transform.position = respawnPoint.position;
-                            Debug.Log("im working");
-                        }
-                        StartCoroutine(burn());
-                        //burnnin();
-                        break;
-                
-                    case RedSJ.overcharge:
-                        overCharge();
-                        break;
-                
-                    case RedSJ.explode:
-                        StartCoroutine(boom());
-                        //boomBoom();
-                        break;
-                    
-                    case RedSJ.playerRed:
+                case RedSJ.burnable:
+                    if (col.gameObject.CompareTag("Player"))
+                    {
+                        //Debug.Log("im working");
+                        // yield return new WaitForSeconds(1f);
                         player.transform.position = respawnPoint.position;
-                        Debug.Log("working");
-                        break;
+                        Debug.Log("im working");
+                    }
 
-                    default: break;
-                }
+                    StartCoroutine(burn());
+                    //burnnin();
+                    break;
+
+                case RedSJ.overcharge:
+                    overCharge();
+                    break;
+
+                case RedSJ.explode:
+                    StartCoroutine(boom());
+                    //boomBoom();
+                    break;
+
+                case RedSJ.playerRed:
+                    player.transform.position = respawnPoint.position;
+                    Debug.Log("working");
+                    break;
+
+                default: break;
             }
-            
         }
 
         
@@ -114,6 +113,11 @@ public class RedSJScript : MonoBehaviour
        Debug.Log("exploding");
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
+        
+        foreach (GameObject destroyObj in destroyObjects)
+        {
+            destroyObj.SetActive(false);
+        }
     }
 
     private void overCharge()

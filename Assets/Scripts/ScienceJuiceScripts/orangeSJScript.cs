@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class purpleSJScript : MonoBehaviour
+public class orangeSJScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,13 +14,5 @@ public class purpleSJScript : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D col)
-    {
-        if (gameObject.tag == "Purple")
-        {
-            
-        }
     }
 }

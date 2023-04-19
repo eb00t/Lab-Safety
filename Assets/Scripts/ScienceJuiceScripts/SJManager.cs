@@ -15,8 +15,6 @@ public enum RedSJ
         burnable,
         overcharge,
         explode,
-        mixSJ,
-        death,
         playerRed
         
     }
@@ -25,9 +23,24 @@ public enum BlueSJ
 {
     nothing,
     generator,
-    charge,
     player,
-    enemyCharge,
-    mixBlueSJ
 }
 
+public enum PurpleSJ
+{
+    nothing,
+    sticky,
+    enemyStop,
+    purpGenerator,
+    blockFire,
+    playerPurp
+}
+
+public enum YellowSJ
+{
+    nothing,
+    growEnemy,
+    grow,
+    yellowGen,
+    itemsGrow
+}

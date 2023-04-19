@@ -64,17 +64,16 @@ public class blueSJScript : MonoBehaviour
                 player.transform.position = respawnPoint.position;
                 Debug.Log("working");
             }
-            
-            if (col.gameObject.CompareTag("BlueSJ"))
+        }
+        if (col.gameObject.CompareTag("BlueSJ"))
+        {
+            switch (electric)
             {
-                switch (electric)
-                {
-                    case BlueSJ.nothing:
-                        break;
+                case BlueSJ.nothing:
+                    break;
 
-                    case BlueSJ.generator:
-                        break;
-                }
+                case BlueSJ.generator:
+                    break;
             }
         }
     }
