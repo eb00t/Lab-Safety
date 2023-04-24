@@ -757,6 +757,10 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4184654982675671817, guid: c00adfbab266c404eaca2a72f8567631, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4184654982675671819, guid: c00adfbab266c404eaca2a72f8567631, type: 3}
       propertyPath: m_Layer
       value: 8
@@ -2779,7 +2783,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.131191, y: 1.9912202, z: -10}
+  m_LocalPosition: {x: 23.125076, y: 1.9911897, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -59,11 +59,11 @@ public class blueSJScript : MonoBehaviour
                 EnemyisCharged = true;
             }
             
-            if (col.gameObject.CompareTag("Player"))
+            /*if (col.gameObject.CompareTag("Player"))
             {
                 player.transform.position = respawnPoint.position;
                 Debug.Log("working");
-            }
+            }*/
         }
         if (col.gameObject.CompareTag("BlueSJ"))
         {

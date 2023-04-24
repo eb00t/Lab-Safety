@@ -6,11 +6,12 @@ using UnityEngine;
 public class dieTemp : MonoBehaviour
 {
     private GameObject player;
-    public Transform respawnPoint;
+    private Transform respawnPoint;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        respawnPoint = GameObject.FindWithTag("Respawn").transform;
     }
 
     // Update is called once per frame
