@@ -39,6 +39,7 @@ public class blueSJScript : MonoBehaviour
             {
                 Debug.Log("red");
                 purpBlue = Instantiate(purpBlue, transform.position, transform.rotation);
+                purpBlue.transform.localScale = gameObject.transform.localScale;
                 gameObject.SetActive(false);
             }
                 
@@ -46,6 +47,7 @@ public class blueSJScript : MonoBehaviour
             {
                 Debug.Log("yellow");
                 greenBlue = Instantiate(greenBlue, transform.position, transform.rotation);
+                greenBlue.transform.localScale = gameObject.transform.localScale;
                 gameObject.SetActive(false);
             }
             

@@ -20,6 +20,7 @@ TagManager:
   - YellowStation
   - BlueStation
   - Enemy
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -54,6 +55,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2296545403
+    locked: 0
   - name: Player
     uniqueID: 2285065635
     locked: 0
