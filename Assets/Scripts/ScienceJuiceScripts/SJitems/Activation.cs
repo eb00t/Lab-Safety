@@ -25,8 +25,17 @@ public class Activation : MonoBehaviour
         {
             Debug.Log("activate");
             chargerCollider.enabled = !chargerCollider.enabled;
-            SJCollider.enabled = true;
             isActivated = true;
+        }
+
+        if (isActivated)
+        {
+            SJCollider.enabled = true;
+        }
+
+        if (batteryisCharged.IsCharged)
+        {
+            
         }
         
        /* if (col.gameObject.CompareTag("Battery"))

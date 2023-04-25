@@ -14,7 +14,7 @@ public class batteryScript : MonoBehaviour
     public blueSJScript batteryCharge;
     public bool IsCharged, charging;
 
-    //public Activation batteryCharge;
+    public Activation active;
    // public RedSJScript batCheck;
     // Start is called before the first frame update
     void Start()
@@ -46,6 +46,7 @@ public class batteryScript : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             IsCharged = false;
             charging = true;
+            gameObject.SetActive(false);
         }
        // if (col.gameObject.CompareTag("Blue") || (col.gameObject.CompareTag("Enemy") && batteryCharge.EnemyisCharged))
        // {
