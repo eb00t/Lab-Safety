@@ -41,7 +41,15 @@ public class YellowSJScript : MonoBehaviour
 
         if (col.gameObject.CompareTag("YellowSJ"))
         {
-            
+            switch (growing)
+            {
+                case YellowSJ.nothing:
+                    break;
+                case YellowSJ.growEnemy:
+                    break;
+                case YellowSJ.itemsGrow:
+                    break; 
+            }
         }
     }
 }
