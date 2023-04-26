@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/In Game/StartScreen Scene.unity
     guid: 853840165a4a30145a83a520330a687f
   - enabled: 1
+    path: Assets/Scenes/Level.unity
+    guid: 62ff591cb1d91d84e8345d48683300a1
+  - enabled: 0
     path: Assets/Scenes/CameraTest.unity
     guid: 3b706b1ef49204e42af1c80c27a7646a
   - enabled: 1
