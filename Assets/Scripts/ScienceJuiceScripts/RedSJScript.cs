@@ -6,6 +6,7 @@ using UnityEngine;
 public class RedSJScript : MonoBehaviour
 {
     private GameObject player;
+    public GameObject electricExplotion;
     private Transform respawnPoint;
     public GameObject[] destroyObjects;
     
@@ -17,6 +18,7 @@ public class RedSJScript : MonoBehaviour
     void Start()
     {
         //anim = GetComponent<Animator>();
+        //electricExplotion = GameObject.Find("/ElectricC");
         respawnPoint = GameObject.FindWithTag("Respawn").transform;
         player = GameObject.FindGameObjectWithTag("Player");
     }
@@ -52,6 +54,15 @@ public class RedSJScript : MonoBehaviour
                 player.transform.position = respawnPoint.position;
                 Debug.Log("im working");
             }
+
+            switch (effects)
+            {
+                case RedSJ.explode:
+                    StartCoroutine(boom());
+                    //boomBoom();
+                    break;
+                default: break;
+            }
         }
         if (col.gameObject.CompareTag("RedSJ"))
         {
@@ -77,11 +88,6 @@ public class RedSJScript : MonoBehaviour
 
                 case RedSJ.overcharge:
                     overCharge();
-                    break;
-
-                case RedSJ.explode:
-                    StartCoroutine(boom());
-                    //boomBoom();
                     break;
 
                 case RedSJ.playerRed:
@@ -117,6 +123,7 @@ public class RedSJScript : MonoBehaviour
         foreach (GameObject destroyObj in destroyObjects)
         {
             destroyObj.SetActive(false);
+            electricExplotion.SetActive(true);
         }
     }
 

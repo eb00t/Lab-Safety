@@ -21,6 +21,7 @@ TagManager:
   - BlueStation
   - Enemy
   - wall
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -69,4 +70,10 @@ TagManager:
     locked: 0
   - name: Liquid
     uniqueID: 340811499
+    locked: 0
+  - name: Object
+    uniqueID: 2176528999
+    locked: 0
+  - name: Decor
+    uniqueID: 3860572667
     locked: 0

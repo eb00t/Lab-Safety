@@ -7,22 +7,27 @@ using UnityEngine;
 public class batteryScript : MonoBehaviour
 {
     //public GameObject battery,wall;
-    private GameObject player, charger;
+    private GameObject player;
+    public GameObject charger;
     // public GameObject red;
     
     
     public blueSJScript batteryCharge;
     public bool IsCharged, charging;
 
-    public Activation active;
+    private ActivationOpen active;
+
+    private Activation activated;
    // public RedSJScript batCheck;
-    // Start is called before the first frame update
+  
     void Start()
     { 
         player = GameObject.FindGameObjectWithTag("Player");
-       charger = GameObject.FindGameObjectWithTag("Charger");
+       //charger = GameObject.FindGameObjectWithTag("Charger");
        IsCharged = false;
-       charging = false;
+       activated = charger.GetComponent<Activation>();
+      // active = charger.g
+       //charging = false;
     }
 
     // Update is called once per frame
@@ -45,43 +50,23 @@ public class batteryScript : MonoBehaviour
             gameObject.transform.parent = charger.transform;
             gameObject.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             IsCharged = false;
-            charging = true;
+            //charging = true;
+            activated.isActivated = true;
             gameObject.SetActive(false);
         }
-       // if (col.gameObject.CompareTag("Blue") || (col.gameObject.CompareTag("Enemy") && batteryCharge.EnemyisCharged))
-       // {
-           // batteryCharge.isActivated = true;
-           // batteryCharge.EnemyisCharged = false;
-        //}
-        
-       /* if (col.gameObject.CompareTag("Player"))
-        {
-            //player.transform.position = respawnPoint.position;
-            gameObject.transform.parent = player.transform;
-        }
 
-        if (col.gameObject.CompareTag("Blue"))
+        if (IsCharged)
         {
-            IsCharged = true;
-            
-            
-        }
-
-        if (IsCharged == true)
-        {
-            if (col.gameObject.CompareTag("Charger"))
+            foreach(Transform t in transform) 
             {
-                gameObject.transform.position = charger.transform.position;
-                gameObject.transform.parent = charger.transform;
-                pickup.enabled = false;
-                
+                t.gameObject.SetActive(true);
+                return;
             }
-        }*/
-       
+        }
+
     }
 
     public void activeBattery()
     {
-        
     }
 }

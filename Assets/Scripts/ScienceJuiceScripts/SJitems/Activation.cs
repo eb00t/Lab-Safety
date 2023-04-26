@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Activation : MonoBehaviour
 {
-    //public GameObject activatedObject;
-    [SerializeField] private bool isActivated;
-    private batteryScript batteryisCharged;
-    private GameObject bat;
+    public bool isDoor;
+    
+    [SerializeField] public bool isActivated;
+    public batteryScript batteryisCharged;
+    //private GameObject batt;
+    public GameObject particleEffects,door;
     private Collider2D chargerCollider;
     public Collider2D SJCollider;
     private Transform Battery;
@@ -17,32 +19,65 @@ public class Activation : MonoBehaviour
     void Start()
     {
         SJCollider.enabled = false;
+       // batteryisCharged = GetComponent<batteryScript>();
         chargerCollider = GetComponent<Collider2D>();
-        bat = GameObject.FindGameObjectWithTag("Charger");
+       // bat = GameObject.FindGameObjectWithTag("Charger");
         Battery = GameObject.FindGameObjectWithTag("Charger").transform;
         isActivated = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("Battery") && Battery.transform.IsChildOf(transform))
+        if (isActivated)
         {
-            Debug.Log("activate");
-            chargerCollider.enabled = !chargerCollider.enabled;
-            isActivated = true;
-            SJCollider.enabled = true;
+            particleEffects.SetActive(true);
+            
+            if (!isDoor)
+            {
+                Debug.Log("activate");
+                chargerCollider.enabled = !chargerCollider.enabled;
+                //isActivated = true;
+                SJCollider.enabled = true;
+            }
+
+            if (isDoor)
+            {
+                Debug.Log("activate");
+                chargerCollider.enabled = !chargerCollider.enabled;
+                //isActivated = true;
+                SJCollider.enabled = false;
+                door.SetActive(false);
+            }
         }
-
-        /*if (isActivated)
+        /*
+        if (!isDoor)
         {
-            SJCollider.enabled = true;
-        }*/
-
-      
+            if (col.gameObject.CompareTag("Battery") && batteryisCharged.IsCharged)
+            {
+                Debug.Log("activate");
+                chargerCollider.enabled = !chargerCollider.enabled;
+                //isActivated = true;
+                SJCollider.enabled = true;
+            }
+        }
         
-       /* if (col.gameObject.CompareTag("Battery"))
+        else if (isDoor)
         {
-            isActivated = true;
+            if (col.gameObject.CompareTag("Battery") && batteryisCharged.IsCharged)
+            {
+                Debug.Log("activate");
+                chargerCollider.enabled = !chargerCollider.enabled;
+                //isActivated = true;
+                SJCollider.enabled = false;
+                bat.SetActive(false);
+            }
+        }
+        particleEffects.SetActive(true);
+
+       
+        else
+        {
+            isActivated = false;
         }*/
     }
 }
