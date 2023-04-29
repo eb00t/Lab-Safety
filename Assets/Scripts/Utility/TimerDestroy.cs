@@ -31,5 +31,9 @@ public class TimerDestroy : MonoBehaviour
             other.GetComponent<WalkEnemyController>().TakeDamage(player.GetComponent<PlayerManager>().playerDamage);
             Destroy(gameObject);
         }
+        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
