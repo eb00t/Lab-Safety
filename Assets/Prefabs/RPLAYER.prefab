@@ -1609,9 +1609,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6139e0eddf671445c8c308949a64dc53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redBallz: {fileID: 0}
-  blueBallz: {fileID: 0}
-  yellowBallz: {fileID: 0}
+  redBallz: {fileID: 5777340032308858100, guid: fecc6a91bed50436d9f00b34735b302e, type: 3}
+  blueBallz: {fileID: 5777340032308858100, guid: e60b12950047a054e9d8b5a489d488e0, type: 3}
+  yellowBallz: {fileID: 5777340032308858100, guid: 946d5e7d28e26174da775a872bacd948, type: 3}
   force: 5
   origin: {fileID: 1698700666212513897}
 --- !u!120 &1698700666084558802
