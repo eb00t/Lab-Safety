@@ -107,6 +107,11 @@ public class  PlayerManager : MonoBehaviour
 
         WallSlide();
         wallJump();
+
+        if (!isWallJumping)
+        {
+            pHB.velocity = new Vector2(moveDir * (moveSpeed + sprintSpeed), pHB.velocity.y);
+        }
     }
 
     private void FixedUpdate()
@@ -114,11 +119,13 @@ public class  PlayerManager : MonoBehaviour
         //moveAxis = Vector3.right * moveDir;
 
         //pHB.AddForce(moveAxis * moveSpeed, ForceMode2D.Force);
-        
+
+        /*
         if (!isWallJumping)
         {
             pHB.velocity = new Vector2(moveDir * (moveSpeed + sprintSpeed), pHB.velocity.y);
         }
+        */
     }
 
     public void Move(InputAction.CallbackContext context)
