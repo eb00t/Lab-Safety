@@ -1521,7 +1521,7 @@ MonoBehaviour:
   cooldown: 2
   dashSpeed: 20
   updateInterval: 0.5
-  jumpForce: 40
+  jumpForce: 45
   healthBar: {fileID: 0}
   wallCheck: {fileID: 1698700664900153235}
   wallLayer:
