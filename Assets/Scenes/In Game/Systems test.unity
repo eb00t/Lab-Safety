@@ -2100,6 +2100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671626e7e9e30644c97cab59a133b582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  electricExplotion: {fileID: 0}
   destroyObjects: []
   effects: 2
   purpRed: {fileID: 0}
@@ -6597,8 +6598,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2222a8f02391e994d809938c108eede6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDoor: 0
   isActivated: 0
   batteryisCharged: {fileID: 1360212551872027735, guid: af1c5eb38212ca34080a8d8119fbf986, type: 3}
+  particleEffects: {fileID: 0}
+  door: {fileID: 0}
   SJCollider: {fileID: 1104240268}
 --- !u!1 &756127714
 GameObject:
@@ -7235,6 +7239,10 @@ PrefabInstance:
     - target: {fileID: 1360212551872027733, guid: af1c5eb38212ca34080a8d8119fbf986, type: 3}
       propertyPath: m_Name
       value: battery (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1360212551872027733, guid: af1c5eb38212ca34080a8d8119fbf986, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1360212551872027735, guid: af1c5eb38212ca34080a8d8119fbf986, type: 3}
       propertyPath: batteryCharge
@@ -8693,6 +8701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671626e7e9e30644c97cab59a133b582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  electricExplotion: {fileID: 0}
   destroyObjects: []
   effects: 5
   purpRed: {fileID: 45895820261283167, guid: dad28d586d7e1cf4ebbc3f0c1e114be1, type: 3}
@@ -10380,7 +10389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96de019941938224eafe781d2cf10031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1402782337}
 --- !u!1001 &1557288170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12636,6 +12644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671626e7e9e30644c97cab59a133b582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  electricExplotion: {fileID: 0}
   destroyObjects: []
   effects: 4
   purpRed: {fileID: 0}
@@ -12652,7 +12661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96de019941938224eafe781d2cf10031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1402782337}
 --- !u!1 &2000780440 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1698700666084558805, guid: 99437d963f1644a328df7b65fdb21652, type: 3}
@@ -12830,11 +12838,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064113832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 671626e7e9e30644c97cab59a133b582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  electricExplotion: {fileID: 0}
   destroyObjects: []
   effects: 0
   purpRed: {fileID: 45895820261283167, guid: dad28d586d7e1cf4ebbc3f0c1e114be1, type: 3}
@@ -12898,7 +12907,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064113832}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6485ec57c4c8ddb4ca03dff027098170, type: 3}
   m_Name: 
@@ -12968,7 +12977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96de019941938224eafe781d2cf10031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 1402782337}
 --- !u!4 &2076887284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4742942805692782254, guid: e1b5cbd8cb507fa49ae82b53bf12c19f, type: 3}

@@ -6,7 +6,7 @@ using UnityEngine;
 public class ThrowController : MonoBehaviour
 {
     private GameObject projectile;
-    public GameObject redBallz;
+    public GameObject redBallz, fakeSJ;
     public GameObject blueBallz;
     public GameObject yellowBallz;
     
@@ -20,7 +20,7 @@ public class ThrowController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        projectile = redBallz;
+        projectile = fakeSJ;
         rb = projectile.GetComponent<Rigidbody2D>();
         lr = GetComponent<LineRenderer>();
     }

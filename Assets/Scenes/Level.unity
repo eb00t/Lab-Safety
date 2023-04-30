@@ -725,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 2771918468486264650, guid: cfef7010ef0e18948bb5df92856ff8ed, type: 3}
       propertyPath: charger
       value: 
-      objectReference: {fileID: 2010059882}
+      objectReference: {fileID: 1323781283}
     - target: {fileID: 2771918468486264650, guid: cfef7010ef0e18948bb5df92856ff8ed, type: 3}
       propertyPath: IsCharged
       value: 1
@@ -82736,6 +82736,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2771918468486264653, guid: cfef7010ef0e18948bb5df92856ff8ed, type: 3}
   m_PrefabInstance: {fileID: 2771918469160231496}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2027164935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2771918468486264650, guid: cfef7010ef0e18948bb5df92856ff8ed, type: 3}
+  m_PrefabInstance: {fileID: 2771918469160231496}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027164929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0d8d583f7a21a47b405d3216333101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2044388700 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 728418634554855758, guid: f6a15d9c873ca01458a1cc1fc0cf8411, type: 3}
@@ -82981,6 +82992,10 @@ PrefabInstance:
       propertyPath: particleEffects
       value: 
       objectReference: {fileID: 894553046}
+    - target: {fileID: 1361416827665794706, guid: 32b91dcad6de6c040be02210ff976df8, type: 3}
+      propertyPath: batteryisCharged
+      value: 
+      objectReference: {fileID: 2027164935}
     - target: {fileID: 1361416827665794708, guid: 32b91dcad6de6c040be02210ff976df8, type: 3}
       propertyPath: m_RootOrder
       value: 18
