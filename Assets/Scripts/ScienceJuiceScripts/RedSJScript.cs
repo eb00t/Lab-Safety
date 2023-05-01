@@ -6,7 +6,7 @@ using UnityEngine;
 public class RedSJScript : MonoBehaviour
 {
     private GameObject player;
-    public GameObject electricExplotion;
+    public GameObject electricExplosion, burnin;
     private Transform respawnPoint;
     public GameObject[] destroyObjects;
     
@@ -107,6 +107,7 @@ public class RedSJScript : MonoBehaviour
     IEnumerator burn()
     {
         //anim.SetBool("onFire", true);
+        burnin.SetActive(true);
         Debug.Log("on fire");
         yield return new WaitForSeconds (7f);
         gameObject.SetActive(false);
@@ -123,7 +124,7 @@ public class RedSJScript : MonoBehaviour
         foreach (GameObject destroyObj in destroyObjects)
         {
             destroyObj.SetActive(false);
-            electricExplotion.SetActive(true);
+            electricExplosion.SetActive(true);
         }
     }
 

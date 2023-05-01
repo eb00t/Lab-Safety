@@ -155,7 +155,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9171238277792379680}
-  - component: {fileID: 9171238277792379694}
   - component: {fileID: 9171238277792379682}
   m_Layer: 0
   m_Name: GreenFloor
@@ -180,23 +179,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9171238277792379694
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171238277792379690}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6485ec57c4c8ddb4ca03dff027098170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  greenBlue: {fileID: 5195567387565898540, guid: 812e7b6a1fc39334f822000618db76d4, type: 3}
-  purpBlue: {fileID: 7566385874312103939, guid: b6e6246f869a2a14483510d43a491ec7, type: 3}
-  electric: 0
-  batteryisCharged: 0
-  EnemyisCharged: 0
 --- !u!114 &9171238277792379682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +186,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9171238277792379690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96de019941938224eafe781d2cf10031, type: 3}
   m_Name: 

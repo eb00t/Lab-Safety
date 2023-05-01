@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class YellowSJScript : MonoBehaviour
 {
-    public Vector3 scaleIncrease = new Vector3(3,3,3);
+    private Vector3 scaleIncrease = new Vector3(10,15.75f,1);
    // private Vector3 scaleDecrease = new Vector3(0,0,0);
-    private GameObject selectedObject;
-    
+    private GameObject selectedObject, player;
+
     private YellowSJ growing;
 
     private bool isgrowing;
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        
         isgrowing = false;
+        
+        if (gameObject.tag == "Yellow")
+        {
+            isgrowing = true;
+            //selectedObject = col.gameObject;
+            StartCoroutine(growShrink());
+        }
+        else
+        {
+            isgrowing = false;
+        }
     }
 
     // Update is called once per frame
@@ -26,16 +39,7 @@ public class YellowSJScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
        // selectedObject = col.gameObject;
-        
-        if (gameObject.tag == "Yellow")
-        {
-            if (col.gameObject.CompareTag("YellowSJ"))
-            {
-                isgrowing = true;
-                //selectedObject = col.gameObject;
-                StartCoroutine(growShrink());
-            }
-        }
+       
 
         if (col.gameObject.CompareTag("YellowSJ"))
         {
@@ -50,7 +54,9 @@ public class YellowSJScript : MonoBehaviour
             }
         }
     }
-
+    
+    
+    
     IEnumerator growShrink()
     {
         while (isgrowing == true)
@@ -64,8 +70,6 @@ public class YellowSJScript : MonoBehaviour
             Debug.Log("loop");
             scaleIncrease = new Vector3(10,2, 1);
             gameObject.transform.localScale = scaleIncrease;
-           
         }
-    
     }
 }

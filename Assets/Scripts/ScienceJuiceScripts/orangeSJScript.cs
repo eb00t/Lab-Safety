@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class orangeSJScript : MonoBehaviour
 {
+    public GameObject explosion;
+    private Transform respawnPoint;
+    public GameObject[] destroyObjects;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +17,23 @@ public class orangeSJScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(boom());
+        }
+    }
+    
+    IEnumerator boom()
+    {
+        // anim.SetBool("isElectric", true);
+        Debug.Log("exploding");
+        yield return new WaitForSeconds(2f);
+        gameObject.SetActive(false);
         
+        foreach (GameObject destroyObj in destroyObjects)
+        {
+            destroyObj.SetActive(false);
+            explosion.SetActive(true);
+        }
     }
 }
