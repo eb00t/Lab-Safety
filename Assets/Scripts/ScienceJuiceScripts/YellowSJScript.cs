@@ -56,13 +56,13 @@ public class YellowSJScript : MonoBehaviour
         while (isgrowing == true)
         {
             yield return new WaitForSeconds (3f);
-            scaleIncrease = new Vector3(4,4,4);
+            scaleIncrease = new Vector3(10,15.75f,1);
             Debug.Log("grow bitches");
             gameObject.transform.localScale = scaleIncrease;
 
             yield return new WaitForSeconds (3f);
             Debug.Log("loop");
-            scaleIncrease = new Vector3(1,1,1);
+            scaleIncrease = new Vector3(10,2, 1);
             gameObject.transform.localScale = scaleIncrease;
            
         }
