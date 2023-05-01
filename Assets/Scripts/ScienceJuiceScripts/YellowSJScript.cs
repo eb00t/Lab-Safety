@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class YellowSJScript : MonoBehaviour
 {
-    private Vector3 scaleIncrease = new Vector3(3,3,3);
+    public Vector3 scaleIncrease = new Vector3(3,3,3);
    // private Vector3 scaleDecrease = new Vector3(0,0,0);
     private GameObject selectedObject;
     
