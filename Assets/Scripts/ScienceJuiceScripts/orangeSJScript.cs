@@ -27,13 +27,13 @@ public class orangeSJScript : MonoBehaviour
     {
         // anim.SetBool("isElectric", true);
         Debug.Log("exploding");
+        explosion.SetActive(true);
         yield return new WaitForSeconds(2f);
         gameObject.SetActive(false);
         
         foreach (GameObject destroyObj in destroyObjects)
         {
             destroyObj.SetActive(false);
-            explosion.SetActive(true);
         }
     }
 }

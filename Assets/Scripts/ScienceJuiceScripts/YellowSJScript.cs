@@ -5,13 +5,13 @@ using UnityEngine;
 public class YellowSJScript : MonoBehaviour
 {
     private Vector3 scaleIncrease = new Vector3(10,15.75f,1);
-   // private Vector3 scaleDecrease = new Vector3(0,0,0);
     private GameObject selectedObject, player;
 
-    private YellowSJ growing;
+    public GameObject orangeYellow, greenYellow;
 
+    private YellowSJ growing;
     private bool isgrowing;
-    // Start is called before the first frame update
+   
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -39,9 +39,25 @@ public class YellowSJScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
        // selectedObject = col.gameObject;
-       
 
-        if (col.gameObject.CompareTag("YellowSJ"))
+       if (gameObject.tag == "Yellow")
+       {
+           if (col.gameObject.CompareTag("BlueSJ"))
+           {
+               Debug.Log("green");
+               greenYellow = Instantiate(greenYellow, transform.position, transform.rotation);
+               gameObject.SetActive(false);
+           }
+
+           else if (col.gameObject.CompareTag("RedSJ"))
+           {
+               Debug.Log("yellow");
+               orangeYellow = Instantiate(orangeYellow, transform.position, transform.rotation);
+               gameObject.SetActive(false);
+           }
+       }
+
+       if (col.gameObject.CompareTag("YellowSJ"))
         {
             switch (growing)
             {

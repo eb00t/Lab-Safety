@@ -173,3 +173,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b943928f80c2948b3711bfefc686d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orangeYellow: {fileID: 9171238277792379690, guid: 97f04ddd88adcb146807cc2311c7ecf1, type: 3}
+  greenYellow: {fileID: 9171238277792379690, guid: dc4cc6d6647cc83469067d48a26c1ee1, type: 3}
