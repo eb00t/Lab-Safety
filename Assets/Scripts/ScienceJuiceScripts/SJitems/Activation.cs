@@ -9,7 +9,7 @@ public class Activation : MonoBehaviour
     
     [SerializeField] public bool isActivated;
     public batteryScript batteryisCharged;
-    //private GameObject batt;
+    private GameObject bat;
     public GameObject particleEffects,door;
     private Collider2D chargerCollider;
     public Collider2D SJCollider;
@@ -18,17 +18,17 @@ public class Activation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SJCollider.enabled = false;
+        //SJCollider.enabled = false;
        // batteryisCharged = GetComponent<batteryScript>();
         chargerCollider = GetComponent<Collider2D>();
-       // bat = GameObject.FindGameObjectWithTag("Charger");
+        bat = GameObject.FindGameObjectWithTag("Battery");
         Battery = GameObject.FindGameObjectWithTag("Charger").transform;
         isActivated = false;
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (isActivated)
+       /* if (isActivated == true)
         {
             particleEffects.SetActive(true);
             
@@ -40,7 +40,7 @@ public class Activation : MonoBehaviour
                 SJCollider.enabled = true;
             }
 
-            if (isDoor)
+            if (isDoor == true)
             {
                 Debug.Log("activate");
                 chargerCollider.enabled = !chargerCollider.enabled;
@@ -48,12 +48,14 @@ public class Activation : MonoBehaviour
                 SJCollider.enabled = false;
                 door.SetActive(false);
             }
-        }
-        /*
+        }*/
+        
         if (!isDoor)
         {
+
             if (col.gameObject.CompareTag("Battery") && batteryisCharged.IsCharged)
             {
+                particleEffects.SetActive(true);
                 Debug.Log("activate");
                 chargerCollider.enabled = !chargerCollider.enabled;
                 //isActivated = true;
@@ -65,19 +67,19 @@ public class Activation : MonoBehaviour
         {
             if (col.gameObject.CompareTag("Battery") && batteryisCharged.IsCharged)
             {
+                particleEffects.SetActive(true);
                 Debug.Log("activate");
                 chargerCollider.enabled = !chargerCollider.enabled;
                 //isActivated = true;
                 SJCollider.enabled = false;
                 bat.SetActive(false);
+                door.SetActive(false);
+            }
+
+            else
+            {
+                isActivated = false;
             }
         }
-        particleEffects.SetActive(true);
-
-       
-        else
-        {
-            isActivated = false;
-        }*/
     }
 }
