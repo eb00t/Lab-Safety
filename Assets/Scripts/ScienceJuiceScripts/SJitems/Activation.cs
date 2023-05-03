@@ -52,7 +52,6 @@ public class Activation : MonoBehaviour
         
         if (!isDoor)
         {
-
             if (col.gameObject.CompareTag("Battery") && batteryisCharged.IsCharged)
             {
                 particleEffects.SetActive(true);

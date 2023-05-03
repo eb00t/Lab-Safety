@@ -66446,10 +66446,6 @@ PrefabInstance:
       propertyPath: charger
       value: 
       objectReference: {fileID: 2010059882}
-    - target: {fileID: 2771918468486264650, guid: cfef7010ef0e18948bb5df92856ff8ed, type: 3}
-      propertyPath: batteryCharge
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2771918468486264653, guid: cfef7010ef0e18948bb5df92856ff8ed, type: 3}
       propertyPath: m_RootOrder
       value: 17
