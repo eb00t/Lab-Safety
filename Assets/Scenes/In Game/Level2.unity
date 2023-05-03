@@ -1584,7 +1584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9171238277792379680, guid: 42b2d9a7d8612614c92b6adb527cb7f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.895937
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 9171238277792379680, guid: 42b2d9a7d8612614c92b6adb527cb7f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3624,6 +3624,10 @@ PrefabInstance:
     - target: {fileID: 9171238277792379690, guid: dc4cc6d6647cc83469067d48a26c1ee1, type: 3}
       propertyPath: m_Name
       value: GreenFloor
+      objectReference: {fileID: 0}
+    - target: {fileID: 9171238277792379690, guid: dc4cc6d6647cc83469067d48a26c1ee1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9171238277792379682, guid: dc4cc6d6647cc83469067d48a26c1ee1, type: 3}
