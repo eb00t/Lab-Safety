@@ -1516,7 +1516,7 @@ RectTransform:
   - {fileID: 4058122742520101664}
   - {fileID: 4058122742435053452}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6532,7 +6532,7 @@ RectTransform:
   m_GameObject: {fileID: 4058122743808048111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7403919, y: 0.7403919, z: 0.7403919}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4058122743502954469}
@@ -6540,8 +6540,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -40.7, y: 20.8}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 37, y: 49}
+  m_SizeDelta: {x: 674.2554, y: 190.68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4058122743808048096
 CanvasRenderer:
@@ -6571,7 +6571,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Controls
+  m_text: 'WASD - to move character around
+
+    Space bar - jump
+
+    Shift + right
+    click - sprint
+
+    Left mouse button - aim and throw
+
+    Tab - pause
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26c8afbaac79066428cf2f2d35c42832, type: 2}
   m_sharedMaterial: {fileID: -485904453695016482, guid: 26c8afbaac79066428cf2f2d35c42832, type: 2}
