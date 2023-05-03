@@ -14,15 +14,9 @@ public class Interaction : MonoBehaviour
         {
             playerInteract.Invoke();
         }
-        if (other.gameObject.CompareTag("Yellow"))
-        {
-            yellow.Invoke();
-        }
-        if (other.gameObject.CompareTag("Red"))
-        {
-            red.Invoke();
-        }
-        else //for everything else
+        
+        
+        else 
         {
             interact.Invoke();
         }

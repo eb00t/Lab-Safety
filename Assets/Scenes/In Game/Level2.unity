@@ -66660,6 +66660,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 864063931}
+    - target: {fileID: 4058122742701419767, guid: f6d549435aa27ab42b6d9291f72cf743, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 465
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d549435aa27ab42b6d9291f72cf743, type: 3}
