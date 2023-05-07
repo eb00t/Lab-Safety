@@ -5,25 +5,25 @@ using UnityEngine.UI;
 using TMPro;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEditor;
+using UnityEngine.Serialization;
 
-public class  PlayerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     private Animator animator;
     private Rigidbody2D pHB; // Player HitBox
 
-    [Header("Stats")]
-    [SerializeField] private int playerHealth = 200;
+    [Header("Stats")] [SerializeField] private int playerHealth = 200;
     public int playerDamage = 15;
     [SerializeField] private float stamina = 100f;
     [SerializeField] private float maxSpeed, moveSpeed, cooldown, dashSpeed, updateInterval;
     private float moveDir, sprintSpeed;
     public float jumpForce;
 
-    [Header("UI")]
-    [SerializeField] private Slider healthBar;
+    [Header("UI")] [SerializeField] private Slider healthBar;
 
-    [Header("Interactions")]
-    [SerializeField] private Transform wallCheck;
+    [Header("Interactions")] [SerializeField]
+    private Transform wallCheck;
+
     [SerializeField] private LayerMask wallLayer;
     [SerializeField] private Transform origin;
     [SerializeField] private GameObject gameManager;
@@ -38,13 +38,13 @@ public class  PlayerManager : MonoBehaviour
     private float dashForce, timeSinceLastUpdate;
     private bool canSprint, isSprinting;
 
-    private bool isWallSliding,isWallJumping;
-    private float wallSlidingSpeed = 2f;
+    private bool isWallSliding, isWallJumping;
+    private readonly float wallSlidingSpeed = 2f;
     private float wallJumpDirection;
-    public float walljumpingCounter;
-    private float wallJumpingTime = 0.2f;
-    private float walljumpingDuration = 0.4f;
-    private Vector2 wallJumpPower = new Vector2(25f, 30f);
+    private float wallJumpingCounter;
+    private readonly float wallJumpingTime = 0.2f;
+    [SerializeField] private float wallJumpingDuration = 0.4f;
+    private Vector2 wallJumpPower;
 
     void Start()
     {
@@ -54,6 +54,7 @@ public class  PlayerManager : MonoBehaviour
         animator = GetComponent<Animator>();
         spawnPos = gameObject.transform.position;
         groundCheck = GetComponent<BoxCollider2D>();
+        wallJumpPower = new Vector2(25f, 30f);
     }
 
     void Update()
@@ -62,37 +63,37 @@ public class  PlayerManager : MonoBehaviour
         {
             if (moveDir > 0)
             {
-               Vector3 newScale = gameObject.transform.localScale;
-               newScale.x = 1f;
-               gameObject.transform.localScale = newScale;
+                Vector3 newScale = gameObject.transform.localScale;
+                newScale.x = 1f;
+                gameObject.transform.localScale = newScale;
             }
+
             if (moveDir < 0)
             {
                 Vector3 newScale = gameObject.transform.localScale;
                 newScale.x = -1f;
                 gameObject.transform.localScale = newScale;
             }
-    
-            if (moveDir < 0 || moveDir > 0)
+
+            switch (moveDir)
             {
-                animator.SetBool("isWalking", true);
+                case < 0 or > 0:
+                    animator.SetBool("isWalking", true);
+                    break;
+                case 0:
+                    animator.SetBool("isWalking", false);
+                    break;
             }
-            else if (moveDir == 0)
-            {
-               animator.SetBool("isWalking", false); //Giving error in tutorial scene?
-            }
-    
+
             //animator.SetFloat("airSpeed", pHB.velocity.y);
-    
+
             if (pHB.velocity.y > 0.1f)
             {
-      
             }
             else if (pHB.velocity.y < -0.1f)
             {
-    
             }
-    
+
             if (groundCheck.IsTouchingLayers(groundLayers))
             {
                 animator.SetBool("isGrounded", true);
@@ -106,7 +107,7 @@ public class  PlayerManager : MonoBehaviour
         animator.SetFloat("yVel", pHB.velocity.y);
 
         WallSlide();
-        wallJump();
+        WallJump();
 
         if (!isWallJumping)
         {
@@ -140,6 +141,7 @@ public class  PlayerManager : MonoBehaviour
             sprintSpeed = 10f;
             animator.SetBool("isRunning", true);
         }
+
         if (context.canceled)
         {
             sprintSpeed = 0f;
@@ -154,7 +156,7 @@ public class  PlayerManager : MonoBehaviour
             if (context.started)
             {
                 pHB.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-                walljumpingCounter = 0f;
+                wallJumpingCounter = 0f;
                 animator.SetTrigger("Jump");
             }
         }
@@ -184,70 +186,81 @@ public class  PlayerManager : MonoBehaviour
         //healthTxt.text = playerHealth + "/" + "200";
     }
 
-    private bool isWalled()
+    private bool IsWalled()
     {
+        // Check if the player is currently touching a wall
+        // using a circle overlap check at the position of the wall check object
+        // with a radius of 0.2f, and checking against the wallLayer
         return Physics2D.OverlapCircle(wallCheck.position, 0.2f, wallLayer);
     }
 
     private void WallSlide()
     {
-        if (isWalled() && !groundCheck.IsTouchingLayers(groundLayers))
+        // Check if the player is currently touching a wall and not touching the ground
+        if (IsWalled() && !groundCheck.IsTouchingLayers(groundLayers) && Input.GetAxisRaw("Horizontal") != 0)
         {
+            // Enable wall sliding
             isWallSliding = true;
+            // Adjust the vertical velocity of the player to a maximum wall sliding speed
             pHB.velocity = new Vector2(pHB.velocity.x, Mathf.Clamp(pHB.velocity.y, -wallSlidingSpeed, float.MaxValue));
         }
         else
         {
+            // Disable wall sliding
             isWallSliding = false;
         }
     }
 
-    private void wallJump()
+    private void WallJump()
     {
         if (isWallSliding)
         {
+            // The player is currently wall sliding, so prepare for a wall jump
             isWallJumping = false;
-            wallJumpDirection = -gameObject.transform.localScale.x;;
-            walljumpingCounter = wallJumpingTime;
-            
+            // Determine the direction of the wall jump based on the player's local scale
+            wallJumpDirection = -gameObject.transform.localScale.x;
+
+            // Reset the wall jumping counter to the maximum duration
+            wallJumpingCounter = wallJumpingTime;
+
+            // Cancel any previous invocations of the StopWallJump method
             CancelInvoke(nameof(StopWallJump));
         }
         else
         {
-            walljumpingCounter -= Time.deltaTime;
+            // Decrement the wall jumping counter over time
+            wallJumpingCounter -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && walljumpingCounter > 0f)
+        // Check if the jump button (Space key) is pressed and there is remaining time for wall jumping
+        if (Input.GetKeyDown(KeyCode.Space) && wallJumpingCounter > 0f)
         {
-            //Debug.Log("wall is activate working");
+            // Activate wall jumping
             isWallJumping = true;
+            // Apply a wall jump velocity to the player based on the wallJumpPower vector
             pHB.velocity = new Vector2(wallJumpDirection * wallJumpPower.x, wallJumpPower.y);
-            walljumpingCounter = 0f;
+            // Reset the wall jumping counter to 0 to prevent additional wall jumps
+            wallJumpingCounter = 0f;
 
+            // Check if the player's local scale needs to be adjusted
             if (gameObject.transform.localScale.x != wallJumpDirection)
             {
-               // Debug.Log("wall is working");
-                if (moveDir > 0)
-                {
-                    Vector3 newScale = gameObject.transform.localScale;
-                    newScale.x = 1f;
-                    gameObject.transform.localScale = newScale;
-                }
-                if (moveDir < 0)
-                {
-                    Vector3 newScale = gameObject.transform.localScale;
-                    newScale.x = -1f;
-                    gameObject.transform.localScale = newScale;
-                }
-            }
-            
-            Invoke(nameof(StopWallJump), walljumpingDuration);
-        }
+                // Adjust the local scale of the player based on the wallJumpDirection
 
+                var transformLocalScale = transform.localScale;
+                transformLocalScale.x *= -1;
+            }
+        }
+        
+        if (wallJumpingCounter <= 0f)
+        {
+            StopWallJump();
+        }
     }
 
     private void StopWallJump()
     {
+        // Disable wall jumping
         isWallJumping = false;
     }
 }

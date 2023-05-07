@@ -26,13 +26,23 @@ public class TimerDestroy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!gameObject.CompareTag("RedSJ"))
         {
-            other.GetComponent<WalkEnemyController>().TakeDamage(player.GetComponent<PlayerManager>().playerDamage);
-            Destroy(gameObject);
+            if (other.CompareTag("Enemy"))
+            {
+                other.GetComponent<WalkEnemyController>().TakeDamage(player.GetComponent<PlayerManager>().playerDamage);
+                Destroy(gameObject);
+            }
         }
+
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
+            Destroy(gameObject);
+        }
+
+        if (gameObject.CompareTag("RedSJ"))
+        {
+            other.GetComponent<WalkEnemyController>().StartCoroutine(other.GetComponent<WalkEnemyController>().DamageOverTime());
             Destroy(gameObject);
         }
     }

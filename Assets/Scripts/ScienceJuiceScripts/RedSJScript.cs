@@ -31,7 +31,7 @@ public class RedSJScript : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (gameObject.tag == "Red")
+        if (gameObject.CompareTag("Red"))
         {
             if (col.gameObject.CompareTag("BlueSJ"))
             {
@@ -66,7 +66,6 @@ public class RedSJScript : MonoBehaviour
         }
         if (col.gameObject.CompareTag("RedSJ"))
         {
-
             switch (effects)
             {
                 case RedSJ.nothing:
@@ -94,13 +93,10 @@ public class RedSJScript : MonoBehaviour
                     player.transform.position = respawnPoint.position;
                     Debug.Log("working");
                     break;
-
-                default: break;
+                default: 
+                    break;
             }
         }
-
-        
-
     }
 
 

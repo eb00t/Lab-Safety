@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +20,13 @@ public class WalkEnemyController : MonoBehaviour
 
     [Header("Defense Parameters")]
     public int enemyHealth;
+
+    private float timer;
+    private float nextHitTime;
+    [SerializeField] private float damageTime = 3f;
+    [SerializeField] private float damageDelay = .5f;
+    [SerializeField] private int dotDamage = 2;
+    private bool isDOT;
 
     //References
     private Animator anim;
@@ -55,6 +64,15 @@ public class WalkEnemyController : MonoBehaviour
         if (enemyPatrol != null)
         {
             enemyPatrol.enabled = !PlayerInSight();
+        }
+
+        if (isDOT)
+        {
+            if (Time.time > nextHitTime)
+            {
+                nextHitTime = Time.time + damageDelay;
+                TakeDamage(dotDamage);
+            } 
         }
     }
 
@@ -103,5 +121,13 @@ public class WalkEnemyController : MonoBehaviour
             healthBar.value = enemyHealth;
             gameObject.SetActive(false);
         }
+    }
+
+    public IEnumerator DamageOverTime()
+    {
+        isDOT = true;
+        nextHitTime = Time.time;
+        yield return new WaitForSeconds(damageTime);
+        isDOT = false;
     }
 }
