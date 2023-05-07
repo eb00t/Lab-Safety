@@ -79,7 +79,7 @@ public class  PlayerManager : MonoBehaviour
             }
             else if (moveDir == 0)
             {
-               animator.SetBool("isWalking", false);
+               animator.SetBool("isWalking", false); //Giving error in tutorial scene?
             }
     
             //animator.SetFloat("airSpeed", pHB.velocity.y);
