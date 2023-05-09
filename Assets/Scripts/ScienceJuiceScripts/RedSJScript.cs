@@ -58,7 +58,11 @@ public class RedSJScript : MonoBehaviour
             switch (effects)
             {
                 case RedSJ.explode:
-                    StartCoroutine(boom());
+                    if (col.gameObject.tag == "Battery")
+                    {
+                        StartCoroutine(boom());
+                    }
+                    
                     //boomBoom();
                     break;
                 default: break;
@@ -112,10 +116,12 @@ public class RedSJScript : MonoBehaviour
 
     IEnumerator boom()
     {
+        
+        
        // anim.SetBool("isElectric", true);
        Debug.Log("exploding");
         yield return new WaitForSeconds(2f);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         
         foreach (GameObject destroyObj in destroyObjects)
         {

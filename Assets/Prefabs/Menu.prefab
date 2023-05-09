@@ -1516,7 +1516,7 @@ RectTransform:
   - {fileID: 4058122742520101664}
   - {fileID: 4058122742435053452}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2792,7 +2792,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 301, y: 179}
+  m_AnchoredPosition: {x: 301, y: 438}
   m_SizeDelta: {x: 122.79, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4058122742701419764
@@ -6571,18 +6571,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD - to move character around
+  m_text: 'ASD - to move character around
 
     Space bar - jump
 
     Shift + right
     click - sprint
 
+
     Left mouse button - aim and throw
 
     Tab - pause
 
-'
+    E
+    - To pick up'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 26c8afbaac79066428cf2f2d35c42832, type: 2}
   m_sharedMaterial: {fileID: -485904453695016482, guid: 26c8afbaac79066428cf2f2d35c42832, type: 2}

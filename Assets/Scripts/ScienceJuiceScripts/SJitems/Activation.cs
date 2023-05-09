@@ -74,11 +74,11 @@ public class Activation : MonoBehaviour
                 bat.SetActive(false);
                 door.SetActive(false);
             }
+        }
 
-            else
-            {
-                isActivated = false;
-            }
+        if (isActivated == true)
+        {
+            door.SetActive(false);
         }
     }
 }

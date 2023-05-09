@@ -40,7 +40,7 @@ public class TimerDestroy : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (gameObject.CompareTag("RedSJ"))
+        if (gameObject.CompareTag("RedSJ") && gameObject.CompareTag("Enemy"))
         {
             other.GetComponent<WalkEnemyController>().StartCoroutine(other.GetComponent<WalkEnemyController>().DamageOverTime());
             Destroy(gameObject);

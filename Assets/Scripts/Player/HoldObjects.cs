@@ -33,9 +33,9 @@ public class HoldObjects : MonoBehaviour
                 grabbedObject.transform.SetParent(transform);
                
                 letGo = true;
-                //Debug.Log("pick up");
+                Debug.Log("pick up");
             }
-            
+            Debug.Log("Y U NO pick up");
         }
         else if (Keyboard.current.eKey.wasPressedThisFrame && letGo == true)
         {
@@ -44,7 +44,7 @@ public class HoldObjects : MonoBehaviour
             grabbedObject = null;
                
             letGo = false;
-            //Debug.Log("let gooooo");
+            Debug.Log("let gooooo");
         }
         
         Debug.DrawRay(rayPoint.position, transform.right * rayDistance);
