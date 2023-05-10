@@ -71,13 +71,14 @@ public class Activation : MonoBehaviour
                 chargerCollider.enabled = !chargerCollider.enabled;
                 //isActivated = true;
                 SJCollider.enabled = false;
-                bat.SetActive(false);
+                //bat.SetActive(false);
                 door.SetActive(false);
             }
         }
 
         if (isActivated == true)
         {
+            bat.SetActive(false);
             door.SetActive(false);
             chargerCollider.enabled = !chargerCollider.enabled;
         }

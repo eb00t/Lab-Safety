@@ -53,6 +53,7 @@ public class YellowSJScript : MonoBehaviour
            {
                Debug.Log("yellow");
                orangeYellow = Instantiate(orangeYellow, transform.position, transform.rotation);
+               orangeYellow.SetActive(true);
                gameObject.SetActive(false);
            }
        }
