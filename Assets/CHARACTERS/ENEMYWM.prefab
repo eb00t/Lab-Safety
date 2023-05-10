@@ -1449,9 +1449,9 @@ GameObject:
   - component: {fileID: 7280186519719853400}
   - component: {fileID: 4287646007166007100}
   - component: {fileID: 5535550781621107184}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ENEMYWM
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1586,7 +1586,10 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  enemyHealth: 0
+  enemyHealth: 100
+  damageTime: 3
+  damageDelay: 0.5
+  dotDamage: 2
 --- !u!82 &3442230511716436897
 AudioSource:
   m_ObjectHideFlags: 0

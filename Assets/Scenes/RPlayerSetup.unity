@@ -2042,14 +2042,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ENEMYWM
       objectReference: {fileID: 0}
-    - target: {fileID: 4184654984392918528, guid: c00adfbab266c404eaca2a72f8567631, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4184654984392918528, guid: c00adfbab266c404eaca2a72f8567631, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 4184654984392918529, guid: c00adfbab266c404eaca2a72f8567631, type: 3}
       propertyPath: m_RootOrder
       value: 3
