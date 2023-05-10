@@ -79,6 +79,7 @@ public class Activation : MonoBehaviour
         if (isActivated == true)
         {
             door.SetActive(false);
+            chargerCollider.enabled = !chargerCollider.enabled;
         }
     }
 }

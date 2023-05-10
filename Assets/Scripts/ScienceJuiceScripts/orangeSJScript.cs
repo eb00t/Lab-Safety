@@ -28,7 +28,9 @@ public class orangeSJScript : MonoBehaviour
         // anim.SetBool("isElectric", true);
         Debug.Log("exploding");
         explosion.SetActive(true);
+        
         yield return new WaitForSeconds(2f);
+        Debug.Log("wait");
         gameObject.SetActive(false);
         
         foreach (GameObject destroyObj in destroyObjects)

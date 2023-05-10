@@ -16,16 +16,16 @@ public class greenSJScript : MonoBehaviour
         Debug.Log("object detected");
         if (other.CompareTag("YellowSJ")) // quadruple
         {
-            StartCoroutine(ResizeObject(new Vector3(originalSize.x, originalSize.y * 4, originalSize.z)));
+           // StartCoroutine(ResizeObject(new Vector3(originalSize.x, originalSize.y * 4, originalSize.z)));
         }
         else if (other.CompareTag("RedSJ")) // reset to 0
         { 
-            Debug.Log("Object was red");
-            StartCoroutine(ResizeObject(originalSize));
+            //Debug.Log("Object was red");
+           // StartCoroutine(ResizeObject(originalSize));
         }
         else if (other.CompareTag("BlueSJ")) // double
         {
-            StartCoroutine(ResizeObject(new Vector3(originalSize.x, originalSize.y * 2, originalSize.z)));
+            //StartCoroutine(ResizeObject(new Vector3(originalSize.x, originalSize.y * 2, originalSize.z)));
         }
     }
 

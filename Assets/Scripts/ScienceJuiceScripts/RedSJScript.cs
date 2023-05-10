@@ -44,6 +44,7 @@ public class RedSJScript : MonoBehaviour
             {
                 Debug.Log("yellow");
                 orangeRed = Instantiate(orangeRed, transform.position, transform.rotation);
+                orangeRed.SetActive(true);
                 gameObject.SetActive(false);
             }
             
