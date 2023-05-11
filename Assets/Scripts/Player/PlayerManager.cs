@@ -46,6 +46,8 @@ public class PlayerManager : MonoBehaviour
     [SerializeField] private float wallJumpingDuration = 0.4f;
     private Vector2 wallJumpPower;
 
+    public GameObject GameOver;
+
     void Start()
     {
         pHB = GetComponent<Rigidbody2D>();
@@ -55,6 +57,7 @@ public class PlayerManager : MonoBehaviour
         spawnPos = gameObject.transform.position;
         groundCheck = GetComponent<BoxCollider2D>();
         wallJumpPower = new Vector2(25f, 30f);
+        GameOver.SetActive(false);
     }
 
     void Update()
@@ -183,6 +186,7 @@ public class PlayerManager : MonoBehaviour
         }
         else if (playerHealth <= 0 || playerHealth == dmgDealt)
         {
+            GameOver.SetActive(true);
             gameObject.transform.position = spawnPos;
             moveDir = 0f;
             playerHealth = 100;

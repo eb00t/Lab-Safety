@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &1361416827665794707
 SpriteRenderer:
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 150430ef40fed1f4d8077b10a97ba3b9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b2d9d8f819abdfe41a8bad03cc231ad4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2222a8f02391e994d809938c108eede6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDoor: 0
   isActivated: 0
+  batteryisCharged: {fileID: 0}
+  particleEffects: {fileID: 0}
+  door: {fileID: 0}
   SJCollider: {fileID: 0}
 --- !u!61 &1361416827665794705
 BoxCollider2D:
@@ -117,7 +121,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 6}
+    oldSize: {x: 3.44, y: 3.81}
     newSize: {x: 6, y: 6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
