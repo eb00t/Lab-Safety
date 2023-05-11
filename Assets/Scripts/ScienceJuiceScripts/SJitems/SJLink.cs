@@ -5,7 +5,7 @@ using UnityEngine;
 public class SJLink : MonoBehaviour
 {
     public bool blueToGreen, blueToPurp;
-    public bool yellowToOrange;
+    public bool yellowToOrange, redToPurp;
 
     // Start is called before the first frame update
     void Start()

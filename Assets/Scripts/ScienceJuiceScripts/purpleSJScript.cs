@@ -32,7 +32,7 @@ public class purpleSJScript : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.CompareTag("BlackSJ") && purplink.blueToGreen == true)
+        if (col.gameObject.CompareTag("BlackSJ") && purplink.blueToPurp == true)
         {
             Debug.Log("back");
             // originalSJ.SetActive(true);
@@ -41,7 +41,7 @@ public class purpleSJScript : MonoBehaviour
             //gameObject.SetActive(false);
         }
         
-        else if (col.gameObject.CompareTag("BlackSJ")  && purplink.blueToPurp == true)
+        else if (col.gameObject.CompareTag("BlackSJ")  && purplink.redToPurp == true)
         {
             Debug.Log("back");
             //originalSJ.SetActive(true);
