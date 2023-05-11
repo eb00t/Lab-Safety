@@ -10,7 +10,7 @@ public class batteryScript : MonoBehaviour
     private GameObject player;
     public GameObject charger;
     // public GameObject red;
-    
+    public GameObject lowBat;
     
     public blueSJScript batteryCharge;
     public bool IsCharged, charging;
@@ -34,6 +34,10 @@ public class batteryScript : MonoBehaviour
     void Update()
     {
        activeBattery();
+       if (IsCharged)
+       {
+           lowBat.SetActive(false);
+       }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -62,6 +66,8 @@ public class batteryScript : MonoBehaviour
                 t.gameObject.SetActive(true);
                 return;
             }
+
+            
         }
 
     }
