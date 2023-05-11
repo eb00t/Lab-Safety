@@ -117,16 +117,13 @@ public class PlayerManager : MonoBehaviour
             pHB.velocity = new Vector2(moveDir * (moveSpeed + sprintSpeed), pHB.velocity.y);
         }
         
-        if (moveDir != 0)
+        if (sprintSpeed > 0f && pHB.velocity.x != 0)
         {
-            if (sprintSpeed > 0f)
-            {
-                animator.SetBool("isRunning", true);
-            }
-            else
-            {
-                animator.SetBool("isRunning", false);
-            }
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
         }
     }
 
