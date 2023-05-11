@@ -365,8 +365,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 671626e7e9e30644c97cab59a133b582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  electricExplosion: {fileID: 0}
+  burnin: {fileID: 0}
   destroyObjects: []
   effects: 0
+  linker: {fileID: 0}
   purpRed: {fileID: 0}
   orangeRed: {fileID: 0}
 --- !u!19719996 &5195567387565898533
@@ -456,4 +459,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96de019941938224eafe781d2cf10031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  respawnPoint: {fileID: 0}
