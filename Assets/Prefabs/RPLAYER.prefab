@@ -1549,8 +1549,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 20
-  m_Material: {fileID: 6200000, guid: 046ced35790c548afa9391ed2a2c7e42, type: 2}
+  m_GravityScale: 15
+  m_Material: {fileID: 6200000, guid: d346f73f09bed4d1b89a92412daf9c05, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -1610,8 +1610,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redBallz: {fileID: 5777340032308858100, guid: fecc6a91bed50436d9f00b34735b302e, type: 3}
-  fakeSJ: {fileID: 0}
-  blackBallz: {fileID: 0}
+  fakeSJ: {fileID: 8102767218188964255, guid: e708f32d89f48e94887ecc0080acc9b0, type: 3}
+  blackBallz: {fileID: 5777340032308858100, guid: 56155cb73d9cc6345b5c2ce874b9d648, type: 3}
   blueBallz: {fileID: 5777340032308858100, guid: e60b12950047a054e9d8b5a489d488e0, type: 3}
   yellowBallz: {fileID: 5777340032308858100, guid: 946d5e7d28e26174da775a872bacd948, type: 3}
   blueActive: {fileID: 0}

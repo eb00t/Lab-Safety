@@ -90142,6 +90142,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: d346f73f09bed4d1b89a92412daf9c05, type: 2}
+    - target: {fileID: 1698700666084558803, guid: 99437d963f1644a328df7b65fdb21652, type: 3}
+      propertyPath: m_GravityScale
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 1698700666084558805, guid: 99437d963f1644a328df7b65fdb21652, type: 3}
       propertyPath: m_Name
       value: RPLAYER
