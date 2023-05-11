@@ -1521,7 +1521,7 @@ MonoBehaviour:
   cooldown: 2
   dashSpeed: 20
   updateInterval: 0.5
-  jumpForce: 45
+  jumpForce: 90
   healthBar: {fileID: 0}
   wallCheck: {fileID: 1698700664900153235}
   wallLayer:
@@ -1533,7 +1533,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
-  walljumpingCounter: 0
+  wallJumpingDuration: 0.4
 --- !u!50 &1698700666084558803
 Rigidbody2D:
   serializedVersion: 4
@@ -1549,8 +1549,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 7
-  m_Material: {fileID: 0}
+  m_GravityScale: 20
+  m_Material: {fileID: 6200000, guid: 046ced35790c548afa9391ed2a2c7e42, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -1610,8 +1610,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redBallz: {fileID: 5777340032308858100, guid: fecc6a91bed50436d9f00b34735b302e, type: 3}
+  fakeSJ: {fileID: 0}
+  blackBallz: {fileID: 0}
   blueBallz: {fileID: 5777340032308858100, guid: e60b12950047a054e9d8b5a489d488e0, type: 3}
   yellowBallz: {fileID: 5777340032308858100, guid: 946d5e7d28e26174da775a872bacd948, type: 3}
+  blueActive: {fileID: 0}
+  redActive: {fileID: 0}
+  yellowActive: {fileID: 0}
+  blackActive: {fileID: 0}
   force: 5
   origin: {fileID: 1698700666212513897}
 --- !u!120 &1698700666084558802
