@@ -9,6 +9,9 @@ public class ThrowController : MonoBehaviour
     public GameObject redBallz, fakeSJ, blackBallz;
     public GameObject blueBallz;
     public GameObject yellowBallz;
+
+    //Display current juice
+    public GameObject blueActive, redActive, yellowActive, blackActive;
     
     public float force = 5f;
     Rigidbody2D rb;
@@ -84,6 +87,43 @@ public class ThrowController : MonoBehaviour
             newProj.GetComponent<Rigidbody2D>().velocity = velocity;
 
             lr.positionCount = 0;
+        }
+
+        //Display current juice
+        if(projectile == blueBallz)
+        {
+            blueActive.SetActive(true);
+            yellowActive.SetActive(false);
+            redActive.SetActive(false);
+            blackActive.SetActive(false);
+        }
+        else if (projectile == redBallz)
+        {
+            blueActive.SetActive(false);
+            yellowActive.SetActive(false);
+            redActive.SetActive(true);
+            blackActive.SetActive(false);
+        }
+        else if (projectile == yellowBallz)
+        {
+            blueActive.SetActive(false);
+            yellowActive.SetActive(true);
+            redActive.SetActive(false);
+            blackActive.SetActive(false);
+        }
+        else if (projectile == blackBallz)
+        {
+            blueActive.SetActive(false);
+            yellowActive.SetActive(false);
+            redActive.SetActive(false);
+            blackActive.SetActive(true);
+        }
+        else if (projectile == fakeSJ)
+        {
+            blueActive.SetActive(false);
+            yellowActive.SetActive(false);
+            redActive.SetActive(false);
+            blackActive.SetActive(false);
         }
     }
     
