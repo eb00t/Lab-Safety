@@ -11,6 +11,10 @@ public class orangeSJScript : MonoBehaviour
     private GameObject breakThis;
     public bool canDestroy;
     
+   // public SJLink oranglink;
+
+  //  public GameObject purpToblue, purpToRed;
+    
     // Start is called before the first frame update
     void Start()
     {

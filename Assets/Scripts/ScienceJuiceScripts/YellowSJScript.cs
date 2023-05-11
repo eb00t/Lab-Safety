@@ -46,7 +46,7 @@ public class YellowSJScript : MonoBehaviour
        {
            if (col.gameObject.CompareTag("BlueSJ"))
            {
-               linker.blueToPurp = true;
+               linker.yellowToOrange = true;
                
                Debug.Log("green");
                greenYellow = Instantiate(greenYellow, transform.position, transform.rotation);

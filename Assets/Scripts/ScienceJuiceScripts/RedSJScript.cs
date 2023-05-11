@@ -11,6 +11,7 @@ public class RedSJScript : MonoBehaviour
     public GameObject[] destroyObjects;
     
     public RedSJ effects;
+    public SJLink linker;
     
    // private Animator anim;
     public GameObject purpRed, orangeRed;
@@ -35,17 +36,23 @@ public class RedSJScript : MonoBehaviour
         {
             if (col.gameObject.CompareTag("BlueSJ"))
             {
+                linker.blueToPurp = true;
+                
                 Debug.Log("blue");
                 purpRed = Instantiate(purpRed, transform.position, transform.rotation);
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
+                Destroy(gameObject);
             }
             
             else if (col.gameObject.CompareTag("YellowSJ"))
             {
+                linker.yellowToOrange = true;
+                
                 Debug.Log("yellow");
                 orangeRed = Instantiate(orangeRed, transform.position, transform.rotation);
                 orangeRed.SetActive(true);
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
+                Destroy(gameObject);
             }
             
             else if (col.gameObject.CompareTag("Player"))
