@@ -113,6 +113,18 @@ public class PlayerManager : MonoBehaviour
         {
             pHB.velocity = new Vector2(moveDir * (moveSpeed + sprintSpeed), pHB.velocity.y);
         }
+        
+        if (moveDir != 0)
+        {
+            if (sprintSpeed > 0f)
+            {
+                animator.SetBool("isRunning", true);
+            }
+            else
+            {
+                animator.SetBool("isRunning", false);
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -136,17 +148,17 @@ public class PlayerManager : MonoBehaviour
 
     public void Dash(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            sprintSpeed = 10f;
-            animator.SetBool("isRunning", true);
-        }
+        
+            if (context.performed)
+            {
+                sprintSpeed = 10f;
+            }
 
-        if (context.canceled)
-        {
-            sprintSpeed = 0f;
-            animator.SetBool("isRunning", false);
-        }
+            if (context.canceled)
+            {
+                sprintSpeed = 0f;
+                //animator.SetBool("isRunning", false);
+            }
     }
 
     public void Jump(InputAction.CallbackContext context)
