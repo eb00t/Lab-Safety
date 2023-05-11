@@ -6,13 +6,18 @@ using UnityEngine;
 public class greenSJScript : MonoBehaviour
 {
     private Vector3 originalSize;
+    public SJLink Greenlink;
+    //public GameObject
+    
+    public GameObject greenToBlue, greenToYellow;
     private void Start()
     {
-        originalSize = transform.parent.transform.localScale;
+       // originalSize = transform.parent.transform.localScale;
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+   /* private void OnTriggerEnter2D(Collider2D other)
     {
+        
         Debug.Log("object detected");
         if (other.CompareTag("YellowSJ")) // quadruple
         {
@@ -27,7 +32,7 @@ public class greenSJScript : MonoBehaviour
         {
             //StartCoroutine(ResizeObject(new Vector3(originalSize.x, originalSize.y * 2, originalSize.z)));
         }
-    }
+    }*/
 
     private IEnumerator ResizeObject(Vector3 newScale)
     {
@@ -41,5 +46,28 @@ public class greenSJScript : MonoBehaviour
         }
 
         transform.parent.transform.localScale = newScale;
+    }
+
+   
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("BlackSJ") && Greenlink.blueToGreen == true)
+        {
+            Debug.Log("back");
+           // originalSJ.SetActive(true);
+            Destroy(gameObject);
+            greenToBlue = Instantiate(greenToBlue, transform.position, transform.rotation);
+            //gameObject.SetActive(false);
+        }
+        
+        else if (col.gameObject.CompareTag("BlackSJ")  && Greenlink.blueToPurp == true)
+        {
+            Debug.Log("back");
+            //originalSJ.SetActive(true);
+            Destroy(gameObject);
+            greenToYellow = Instantiate(greenToYellow, transform.position, transform.rotation);
+            //gameObject.SetActive(false);
+        }
     }
 }

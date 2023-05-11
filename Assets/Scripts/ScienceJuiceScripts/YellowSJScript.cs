@@ -11,6 +11,8 @@ public class YellowSJScript : MonoBehaviour
 
     private YellowSJ growing;
     private bool isgrowing;
+    
+    public SJLink linker;
    
     void Start()
     {
@@ -44,6 +46,8 @@ public class YellowSJScript : MonoBehaviour
        {
            if (col.gameObject.CompareTag("BlueSJ"))
            {
+               linker.blueToPurp = true;
+               
                Debug.Log("green");
                greenYellow = Instantiate(greenYellow, transform.position, transform.rotation);
                gameObject.SetActive(false);
@@ -51,6 +55,8 @@ public class YellowSJScript : MonoBehaviour
 
            else if (col.gameObject.CompareTag("RedSJ"))
            {
+               linker.blueToGreen = true;
+               
                Debug.Log("yellow");
                orangeYellow = Instantiate(orangeYellow, transform.position, transform.rotation);
                orangeYellow.SetActive(true);

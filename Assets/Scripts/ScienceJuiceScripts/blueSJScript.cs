@@ -14,7 +14,10 @@ public class blueSJScript : MonoBehaviour
     
     public bool batteryisCharged, EnemyisCharged;
 
-   //private Animator anim;
+    //public bool blueToGreen, blueToPurp;
+
+    public SJLink linker;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,24 +34,30 @@ public class blueSJScript : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (gameObject.tag == "Blue")
         {
             if (col.gameObject.CompareTag("RedSJ"))
             {
+                linker.blueToPurp = true;
+                
                 Debug.Log("red");
                 purpBlue = Instantiate(purpBlue, transform.position, transform.rotation);
                 purpBlue.transform.localScale = gameObject.transform.localScale;
                 gameObject.SetActive(false);
+                
             }
                 
             if (col.gameObject.CompareTag("YellowSJ"))
             {
+                linker.blueToGreen = true;
+                
                 Debug.Log("yellow");
                 greenBlue = Instantiate(greenBlue, transform.position, transform.rotation);
                 greenBlue.transform.localScale = gameObject.transform.localScale;
                 gameObject.SetActive(false);
+                
             }
             
             if (col.gameObject.CompareTag("Battery"))

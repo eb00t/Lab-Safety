@@ -6,7 +6,7 @@ using UnityEngine;
 public class ThrowController : MonoBehaviour
 {
     private GameObject projectile;
-    public GameObject redBallz, fakeSJ;
+    public GameObject redBallz, fakeSJ, blackBallz;
     public GameObject blueBallz;
     public GameObject yellowBallz;
     
@@ -43,6 +43,11 @@ public class ThrowController : MonoBehaviour
             {
                 //Debug.Log("im workingB");
                 projectile = blueBallz;
+            } 
+            if (col.gameObject.CompareTag("BlackStation"))
+            {
+                //Debug.Log("im workingB");
+                projectile = blackBallz;
             } 
         }
    void Update()
